@@ -1,0 +1,38 @@
+@import "./_base/typography";
+@import "./_base/variables";
+@import "./_base/reset";
+@import "bootstrap/scss/bootstrap";
+
+body {
+  font-family: $font-family--primary;
+}
+
+.btn {
+
+  &-primary {
+    border-radius: 100px;
+    line-height: 20px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    letter-spacing: 1px;
+
+    span {
+        position: absolute;
+        right: -30px;
+        height: 34px;
+        width: 34px;
+        border-radius: 100px;
+        background-color: $white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        img {
+            height: 12px;
+            width: 12px;
+            object-fit: contain;
+        }
+    }
+  }
+}

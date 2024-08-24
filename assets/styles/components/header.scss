@@ -1,0 +1,104 @@
+@import "../_base/typography";
+@import "../_base/variables";
+@import "bootstrap/scss/_functions";
+@import "bootstrap/scss/_variables";
+@import "bootstrap/scss/mixins/_breakpoints";
+
+.nav-menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 32px;
+    padding-bottom: 32px;
+    width: 100%;
+    left: 0;
+    position: absolute;
+    z-index: 2;
+
+    @include media-breakpoint-down(lg) {
+        position: fixed;
+        align-items: flex-start;
+        padding: 24px 15px;
+        // left: 0;
+        // top: 0;
+        // height: 100%;
+    }
+
+    img {
+        width: 135px;
+        height: auto;
+        object-fit: contain;
+
+        @include media-breakpoint-down(lg) {
+            height: 36px;
+            width: auto;
+        }
+    }
+
+    ul {
+        list-style: none;
+        display: flex;
+        align-items: center;
+        padding: 0;
+        margin: 0;
+        gap: 30px;
+
+        @include media-breakpoint-down(lg) {
+            position: absolute;
+            flex-direction: column;
+            display: none;
+            left: 0;
+            top: 96px;
+            width: 100%;
+            height: 100%;
+        }
+    }
+    &__item {
+        padding: 6px 24px;
+        border-radius: 100px;
+
+        a {
+            text-transform: uppercase;
+            @include font-size($font-regular);
+            color: $black;
+            text-decoration: none;
+            font-weight: $font-weight--regular;
+        }
+
+        &--active {
+            border: 1px solid $black;
+        }
+    }
+
+    &__contact {
+        @include media-breakpoint-down(lg) {
+            display: none;
+            position: absolute;
+            bottom: 20px;
+            left: 35%;
+        }
+    }
+
+    &__burguer {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+        border-radius: 100px;
+        border: 2px solid $black;
+        height: 36px;
+        width: 36px;
+
+        @include media-breakpoint-down(lg) {
+            display: flex;
+        }
+
+        span {
+            height: 3px;
+            width: 18px;
+            background-color: $black;
+            border-radius: 100px;
+        }
+    }
+}
