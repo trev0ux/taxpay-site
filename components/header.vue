@@ -1,7 +1,7 @@
 <template>
   <header class="container position-relative">
     <div class="nav-menu">
-    <NuxtImg src="/logo.png" alt="TaxPay Logo"></NuxtImg>
+    <NuxtImg src="/logo.svg" alt="TaxPay Logo"></NuxtImg>
     <ul>
       <li class="nav-menu__item"><NuxtLink to="/servicos">Nossos Serviços</NuxtLink></li>
       <li class="nav-menu__item"><NuxtLink to="/quem-somos">Quem Somos</NuxtLink></li>

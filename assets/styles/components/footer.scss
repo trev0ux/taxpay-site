@@ -1,0 +1,195 @@
+@import "../_base/typography";
+@import "../_base/variables";
+@import "bootstrap/scss/_functions";
+@import "bootstrap/scss/_variables";
+@import "bootstrap/scss/mixins/_breakpoints";
+
+.footer {
+    background-color: $black;
+    padding: 60px 0px 0px 0px;
+   
+
+
+    >div {
+        display: flex;
+        flex-direction: row;
+        gap: 50px;
+    }
+
+    &__logo {
+        filter: invert(1);
+        width: 350px;
+        height: 100px;
+        margin-bottom: 25px;
+        object-fit: contain;
+
+       
+
+    }
+
+    &__subscribe{
+        width: 350px;
+        font-size: 19px;
+        color: $white;
+        font-weight: $font-weight--regular;
+        margin-left: 5px;
+        margin-bottom: 25px;
+    }
+
+    &__input-email {
+        display: flex;
+        align-items: center;
+        border-radius: 50px;
+        padding: 5px;
+        background-color: #fff;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        gap: 10px;
+        width: 350px;
+
+
+        .form-control {
+            border: none;
+
+            padding: 10px 20px;
+            border-radius: 50px 0 0 50px;
+            outline: none;
+            max-width: 190px;
+
+            &::placeholder {
+                color: #888;
+                font-size: 14px;
+                font-family: $font-family--secondary;
+            }
+
+
+        }
+
+        .btn {
+            display: flex;
+            align-items: center;
+            background-color: $black;
+            color: $white;
+            border: none;
+            padding: 8px 20px;
+            border-radius: 50px 50px;
+            cursor: pointer;
+            outline: none;
+        }
+
+        .btn span {
+            right: -35px;
+            background-color: #baeea1;
+
+        }
+
+        .btn img {
+            width: 15px;
+            /* Ajusta o tamanho da imagem do ícone */
+            height: 15px;
+        }
+    }
+
+    &__maps{
+        margin-left: 80px;
+        
+        h4{
+            color: $white;
+            font-size: 19px;
+            
+            
+        }
+    
+        ul{
+           list-style: none;
+            font-family: $font-family--secondary;
+            font-weight: $font-weight--medium;
+            color: $steel;
+            padding: 0;
+            margin: 0;
+            text-decoration: none;
+            
+        }
+        
+    }
+
+  
+
+
+    &__services{
+        margin-left: 100px;
+
+        h4{
+            color: $white;
+            font-size: 19px;
+        }
+        
+        ul{
+            list-style: none;
+            font-family: $font-family--secondary;
+            font-weight: $font-weight--medium;
+            color: $steel;
+            padding: 0;
+            margin: 0;
+            text-decoration: none;
+            
+        }
+    }
+
+
+    &__contacts{
+        margin-left: 200px;
+
+        h4{
+            color: $white;
+            font-size: 19px;
+        }
+
+        ul{
+            list-style: none;
+            font-family: $font-family--secondary;
+            font-weight: $font-weight--medium;
+            color: $steel;
+            padding: 0;
+            margin: 0;
+            text-decoration: none;
+            
+        }
+        p{
+            margin-bottom: 0px;
+        }
+
+        button{
+            margin-top: 50px;
+            background-color: $white;
+            color: $black;
+
+            display: flex;
+            align-items: center;
+           
+           
+            padding: 8px 20px;
+            border-radius: 50px 50px;
+            cursor: pointer;
+            outline: none;
+        }
+
+        .btn span {
+            right: -35px;
+            background-color: #baeea1;
+
+        }
+
+        
+    }
+
+
+    &__rights{
+        width: 100%;
+        display: flex;
+        margin-top: 50px;
+        border-top: 1px solid $steel;
+        padding: 15px 0px 0px 0px;
+    }
+
+
+}
