@@ -8,7 +8,7 @@
           <div
             v-for="(service, index) in services"
             :key="service.title"
-            class="services__progress-bar"
+            class="services__item"
           >
             <h3
               @click="toggleService(index)"
@@ -20,14 +20,16 @@
               "
             >
               {{ service.title }}
+              <Icon name="ChevronIcon"></Icon>
               <span
+                class="services__progress-bar"
                 :style="{
-                  width: index === currentIndex ? `${progress}%` : '0%',
+                  height: index === currentIndex ? `${progress}%` : '0%',
                 }"
               ></span>
             </h3>
             <transition name="accordion">
-              <p v-show="index === currentIndex" class="services__content">
+              <p v-show="index === currentIndex">
                 {{ service.content }}
               </p>
             </transition>
@@ -44,7 +46,12 @@
 </template>
 
 <script>
+import { Icon } from "#components";
+
 export default {
+  components: {
+    Icon
+  },
   data() {
     return {
       services: [

@@ -1,89 +1,89 @@
 <template>
-        <section class="hero-banner">
-      <aside class="hero-banner__social-icons">
-        <ul>
-          <li>
-            <NuxtLink><NuxtImg src="/instagram.png"></NuxtImg></NuxtLink>
-          </li>
-          <li>
-            <NuxtLink><NuxtImg src="/facebook.png"></NuxtImg></NuxtLink>
-          </li>
-          <li>
-            <NuxtLink><NuxtImg src="/linkedin.png"></NuxtImg></NuxtLink>
-          </li>
-          <li>
-            <NuxtLink><NuxtImg src="/youtube.png"></NuxtImg></NuxtLink>
-          </li>
-        </ul>
-      </aside>
-      <swiper
-        :loop="true"
-        :modules="modules"
-        :navigation="true"
-        :slides-per-view="1"
-        :space-between="0"
-        :auto-play="true"
-        @slideChange="onSlideChange"
-        @swiper="onSwiper"
-        :pagination="false"
-        :draggable="true"
+  <section class="hero-banner">
+    <aside class="hero-banner__social-icons">
+      <ul>
+        <li>
+          <NuxtLink><NuxtImg src="/instagram.png"></NuxtImg></NuxtLink>
+        </li>
+        <li>
+          <NuxtLink><NuxtImg src="/facebook.png"></NuxtImg></NuxtLink>
+        </li>
+        <li>
+          <NuxtLink><NuxtImg src="/linkedin.png"></NuxtImg></NuxtLink>
+        </li>
+        <li>
+          <NuxtLink><NuxtImg src="/youtube.png"></NuxtImg></NuxtLink>
+        </li>
+      </ul>
+    </aside>
+    <swiper
+      :loop="true"
+      :modules="modules"
+      :navigation="true"
+      :slides-per-view="1"
+      :space-between="0"
+      :auto-play="true"
+      @slideChange="onSlideChange"
+      @swiper="onSwiper"
+      :pagination="false"
+      :draggable="true"
+    >
+      <swiper-slide
+        v-for="(item, index) in items"
+        :key="index"
+        class="hero-banner__swiper"
       >
-        <swiper-slide
-          v-for="(item, index) in items"
-          :key="index"
-          class="hero-banner__swiper"
-        >
-          <figure
-            :style="{ backgroundImage: `url(${item.image})` }"
-            :alt="item.alt"
-            class="hero-banner__background"
-          ></figure>
-          <div class="container hero-banner__container">
-            <div class="hero-banner__content">
-              <div>
-                <h1>Menos é mais.</h1>
-                <p>
-                  Suspendisse ultrices urna turpis, eu rutrum nulla sodales
-                  eget. Phasellus tincidunt mi odio, eget molestie esturna
-                  turpis, eu rutrum.
-                </p>
-              </div>
-              <button class="btn btn-primary">
-                Entre em contato
-                <span>
-                  <NuxtImg src="/chevron.png" alt="Seta para direita"></NuxtImg>
-                </span>
-              </button>
+        <figure
+          :style="{ backgroundImage: `url(${item.image})` }"
+          :alt="item.alt"
+          class="hero-banner__background"
+        ></figure>
+        <div class="container hero-banner__container">
+          <div class="hero-banner__content">
+            <div>
+              <h1>Menos é mais.</h1>
+              <p>
+                Suspendisse ultrices urna turpis, eu rutrum nulla sodales eget.
+                Phasellus tincidunt mi odio, eget molestie esturna turpis, eu
+                rutrum.
+              </p>
             </div>
+            <button class="btn btn-primary">
+              Entre em contato
+              <span>
+                <NuxtImg src="/chevron.png" alt="Seta para direita"></NuxtImg>
+              </span>
+            </button>
           </div>
-        </swiper-slide>
-      </swiper>
-      <div class="custom-pagination hero-banner__bottom-pagination">
-        <ul>
-          <li
-            v-for="(slide, index) in slides"
-            :key="index"
-            :class="{ active: activeIndex === index }"
-            @click="goToSlide(index)"
-          >
-            <span>{{ index + 1 }}.</span> {{ slide.title }}
-          </li>
-        </ul>
-      </div>
+        </div>
+      </swiper-slide>
+    </swiper>
+    <div class="custom-pagination hero-banner__bottom-pagination">
+      <ul>
+        <li
+          v-for="(slide, index) in slides"
+          :key="index"
+          :class="{ active: activeIndex === index }"
+          @click="goToSlide(index)"
+        >
+          <span>{{ index + 1 }}.</span> {{ slide.title }}
+        </li>
+      </ul>
+    </div>
 
-      <div class="custom-number-pagination hero-banner__number-pagination">
-        <ul>
-          <li
-            v-for="(slide, index) in slides"
-            :key="index"
-            :class="{ active: activeIndex === index }"
-            @click="goToSlide(index)"
-          >
-            0{{ index + 1 }}
-          </li>
-        </ul>
-      </div>
-    </section>
+    <div class="custom-number-pagination hero-banner__number-pagination">
+      <ul>
+        <li
+          v-for="(slide, index) in slides"
+          :key="index"
+          :class="{ active: activeIndex === index }"
+          @click="goToSlide(index)"
+        >
+          0{{ index + 1 }}
+        </li>
+      </ul>
+    </div>
+  </section>
 </template>
 
 <script>
