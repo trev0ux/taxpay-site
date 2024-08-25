@@ -1,22 +1,26 @@
 <template>
   <div>
-    <Banner></Banner>
-    <Culture></Culture>
-    <h1>Homepage</h1>
+    <banner></banner>
+    <culture></culture>
+    <services></services>
+    <about-us></about-us>
+    <!-- <h1>Homepage</h1>
     <h2>Recent Posts</h2>
     <ul>
       <li v-for="post in posts" :key="post.slug">
         <h3>{{ post.title }}</h3>
       </li>
-    </ul>
+    </ul> -->
   </div>
 </template>
 
 <script>
 import { HOMEPAGE_QUERY } from "~/graphql/queries";
 import { useNuxtApp } from "#app";
-import Banner from "@/components/sections/Banner";
-import Culture from "@/components/sections/Culture";
+import Banner from "@/components/sections/banner";
+import Culture from "@/components/sections/culture";
+import Services from "@/components/sections/services";
+import AboutUs from "@/components/sections/about-us";
 
 export default {
   mounted() {
@@ -24,7 +28,9 @@ export default {
   },
   components: {
     Banner,
-    Culture
+    Culture,
+    Services,
+    AboutUs
   },
   setup() {
     const breakpoints = {
@@ -52,7 +58,6 @@ export default {
       try {
         const response = await $axios.post("", { query: HOMEPAGE_QUERY });
         const { data } = response.data;
-        console.log(response);
         this.posts = data.posts.nodes;
       } catch (error) {
         console.error("Error fetching data:", error);

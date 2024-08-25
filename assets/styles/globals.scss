@@ -7,6 +7,18 @@ body {
   font-family: $font-family--primary;
 }
 
+.accordion-enter-active,
+.accordion-leave-active {
+  transition: max-height 0.3s ease, opacity 0.3s ease;
+  max-height: 100px;
+  opacity: 1;
+}
+.accordion-enter-from,
+.accordion-leave-to {
+  max-height: 0;
+  opacity: 0;
+}
+
 .btn {
 
   &-primary {
