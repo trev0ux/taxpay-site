@@ -8,7 +8,7 @@
 
         <h4 class="footer__subscribe">INSCREVA-SE EM NOSSA NEWSLETTER E RECEBA NOVIDADES.</h4>
         <div class="footer__input-email">
-          <input class="form-control" placeholder="Seu email"type="text">
+          <input class="form-control" placeholder="Seu email" type="text">
 
           <button class="btn btn-primary">
             inscrever
@@ -21,8 +21,8 @@
 
 
       <div class="footer__maps">
-        <h4 >MAPA DO SITE</h4>
-        <ul >
+        <h4>MAPA DO SITE</h4>
+        <ul>
           <li><a href=""></a>nossos serviços</li>
           <li><a href=""></a>quem somos</li>
           <li><a href=""></a>equipe</li>
@@ -45,16 +45,16 @@
       <div class="footer__contacts">
         <h4>Contato</h4>
         <ul>
-          <p>(44) x xxxx-xxxx</p>
-          <p>atendimento@taxpay.com.br</p>
+          <li>(44) x xxxx-xxxx</li>
+          <li>atendimento@taxpay.com.br</li>
         </ul>
 
-        <button class="btn btn-primary">ENTRAR EM CONTATO 
+        <button class="btn btn-primary">ENTRAR EM CONTATO
           <span>
-              <NuxtImg src="/chevron.png" alt="Seta para direita"></NuxtImg>
-            </span>
+            <NuxtImg src="/chevron.png" alt="Seta para direita"></NuxtImg>
+          </span>
         </button>
-        
+
       </div>
 
 
@@ -63,12 +63,31 @@
 
     </div>
 
-    
+
     <div class="container">
       <div class="footer__rights">
         <p>TAXPAY</p>
         <P>Endereço Avenida Lorem Ipsum - Lorem Ipsumm Lorem Ipsum XXX - Lorem Ipsum</P>
-        
+
+        <ul>
+          <li>
+            <NuxtLink>
+              <Icon name="InstagramIcon"></Icon>
+            </NuxtLink>
+          </li>
+          <li>
+            <NuxtLink>
+              <Icon name="FacebookIcon"></Icon>
+            </NuxtLink>
+          </li>
+          <li>
+            <NuxtLink>
+              <Icon name="LinkedinIcon"></Icon>
+            </NuxtLink>
+          </li>
+         
+        </ul>
+
       </div>
     </div>
 
@@ -77,6 +96,7 @@
 </template>
 
 <script>
+import { Icon } from "#components";
 export default {};
 </script>
 
