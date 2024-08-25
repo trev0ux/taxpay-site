@@ -3,16 +3,16 @@
     <aside class="hero-banner__social-icons">
       <ul>
         <li>
-          <NuxtLink><NuxtImg src="/instagram.png"></NuxtImg></NuxtLink>
+          <NuxtLink><Icon name="InstagramIcon"></Icon></NuxtLink>
         </li>
         <li>
-          <NuxtLink><NuxtImg src="/facebook.png"></NuxtImg></NuxtLink>
+          <NuxtLink><Icon name="FacebookIcon"></Icon></NuxtLink>
         </li>
         <li>
-          <NuxtLink><NuxtImg src="/linkedin.png"></NuxtImg></NuxtLink>
+          <NuxtLink><Icon name="LinkedinIcon"></Icon></NuxtLink>
         </li>
         <li>
-          <NuxtLink><NuxtImg src="/youtube.png"></NuxtImg></NuxtLink>
+          <NuxtLink><Icon name="YoutubeIcon"></Icon></NuxtLink>
         </li>
       </ul>
     </aside>
@@ -89,6 +89,7 @@
 <script>
 import { A11y, Navigation, Pagination, Scrollbar } from "swiper/modules";
 import { watch } from "vue";
+import { Icon } from "#components";
 
 import { Swiper, SwiperSlide } from "swiper/vue";
 
@@ -159,6 +160,7 @@ export default {
   components: {
     Swiper,
     SwiperSlide,
+    Icon
   },
 };
 </script>

@@ -5,7 +5,7 @@
 @import "bootstrap/scss/mixins/_breakpoints";
 
 .hero-banner {
-    height: 125vh;
+    height: 100vh;
     position: relative;
 
     @include media-breakpoint-down(lg) {
@@ -56,11 +56,10 @@
             flex-direction: column;
             gap: 16px;
 
-            img {
+            svg {
                 height: 20px;
                 width: 20px;
-                object-fit: contain;
-                cursor: pointer;
+                color: $black;
             }
         }
     }
@@ -94,7 +93,7 @@
     }
 
     .swiper {
-        height: 125vh;
+        height: 100vh;
 
         @include media-breakpoint-down(lg) {
             height: 80vh;
