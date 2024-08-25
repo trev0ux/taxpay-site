@@ -2,13 +2,14 @@
   <div>
     <Banner></Banner>
     <Culture></Culture>
-    <h1>Homepage</h1>
+    <Services></Services>
+    <!-- <h1>Homepage</h1>
     <h2>Recent Posts</h2>
     <ul>
       <li v-for="post in posts" :key="post.slug">
         <h3>{{ post.title }}</h3>
       </li>
-    </ul>
+    </ul> -->
   </div>
 </template>
 
@@ -17,6 +18,7 @@ import { HOMEPAGE_QUERY } from "~/graphql/queries";
 import { useNuxtApp } from "#app";
 import Banner from "@/components/sections/Banner";
 import Culture from "@/components/sections/Culture";
+import Services from "@/components/sections/Services";
 
 export default {
   mounted() {
@@ -24,7 +26,8 @@ export default {
   },
   components: {
     Banner,
-    Culture
+    Culture,
+    Services
   },
   setup() {
     const breakpoints = {

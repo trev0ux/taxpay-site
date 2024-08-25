@@ -244,8 +244,6 @@
             justify-content: center;
             gap: 0;
         }
-
-
     }
 
     &__text {
@@ -358,4 +356,87 @@
             }
         }
     }
+}
+
+.services {
+
+    h2 {
+        font-size: 82px;
+        margin-bottom: 70px;
+        color: $black;
+        line-height: 1;
+        text-align: center;
+
+        @include media-breakpoint-down(xl) {
+            font-size: 62px;
+            max-width: 320px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+    }
+
+
+    &__container {
+        display: flex;
+        justify-content: space-between;
+        gap: 64px;
+
+        @include media-breakpoint-down(xl) {
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0;
+        }
+
+        > div {
+            width: 100%;
+
+            @include media-breakpoint-up(lg) {
+                flex: 0 0 50%;
+            }
+        }
+
+        > figure {
+            display: grid;
+            gap: 16px;
+            grid-template-columns: .8fr 1fr;
+
+            img {
+                border-radius: 64px;
+                
+                &:nth-child(1) {
+                    grid-template-rows: 1fr;
+                }
+
+                &:nth-child(2) {
+                    grid-template-rows: 1fr;
+                }
+
+                &:nth-child(3) {
+                    grid-template-rows: 3fr;
+                }
+
+            }
+        }
+    }
+
+    &__accordion-item {
+
+        &--active {
+            color: $black !important;  
+        }
+
+        h3 {
+            color: $heritage;
+            font-size: 42px;
+            margin-bottom: 24px;
+            font-weight: $font-weight--bold;
+        }
+
+        p {
+            @include font-size($font-regular);
+            font-weight: $font-weight--regular;
+            font-family: $font-family--secondary;
+        }
+    }
+
 }
