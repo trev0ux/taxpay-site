@@ -5,6 +5,7 @@
 @import "bootstrap/scss/mixins/_breakpoints";
 
 .footer {
+   
     background-color: $black;
     padding: 60px 0px 0px 0px;
     @include media-breakpoint-down(lg){
@@ -134,9 +135,13 @@
 
 
     &__services{
-        
+        margin-right: 6rem;
         @include media-breakpoint-down(lg){
             display: none;
+        }
+
+        @include media-breakpoint-down(xl){
+           margin-right: 0;
         }
 
         h4{

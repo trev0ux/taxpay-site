@@ -4,6 +4,105 @@
 @import "bootstrap/scss/_variables";
 @import "bootstrap/scss/mixins/_breakpoints";
 
-.services{
-    border: 2px solid red;
+.services {
+    height: 100vh;
+    border: 1px solid $white;
+    display: flex;
+    justify-content: center;
+
+
+    &__business {
+        border: 1px solid $white;
+        margin-top: 100px;
+        background-color: $heritage;
+        height: 800px;
+        width: 95%;
+        display: flex;
+
+        border-radius: 30PX;
+        text-align: center;
+        flex-direction: column;
+
+
+        h1 {
+            color: $black;
+            font-size: 60px;
+            margin-top: 40px;
+        }
+
+        p {
+            font-family: $font-family--secondary;
+        }
+
+    }
+
+    &__cards {
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+        padding: 20px 10px;
+        justify-content: center;
+        align-items: center;
+
+
+    }
+
+   
+
+    &__background {
+        background-color: $light-green;
+        width: 90px;
+        height: 80px;
+        border-radius: 1000px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+
+        img {
+            height: 50%;
+            width: 40%;
+        }
+
+
+    }
+
+    &__information {
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+
+        h4 {
+            text-align: left;
+            
+        }
+
+        p {
+            text-align: left;
+        }
+    }
+
+    &__card {
+        border: 1px solid $white;
+        display: flex;
+        border-radius: 40px;
+        padding: 30px;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        width: 25%;
+        
+        gap: 20px;
+        transition: all .2s linear
+       
+
+
+    }
+        &__card:hover {
+            background-color: $white;
+            cursor: pointer;
+            transition: all .2s linear;
+        }
+
 }
