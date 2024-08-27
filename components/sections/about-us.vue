@@ -1,5 +1,5 @@
 <template>
-  <section class="about-us">
+  <section :class="'about-us ' + (isPurple ? 'about-us--purple' : '')">
     <div class="container">
       <div class="about-us__container">
         <div class="about-us__image d-none d-lg-block">
@@ -11,7 +11,7 @@
             <NuxtImg src="/image-1.png" alt="about us banner"></NuxtImg>
           </div>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspen</p>
-          <button class="btn btn-primary">
+          <button v-if="!isPurple" class="btn btn-primary">
             Entre em contato
             <span>
               <NuxtImg src="/chevron.png" alt="Seta para direita"></NuxtImg>
@@ -24,7 +24,17 @@
 </template>
 
 <script>
-export default {};
+export default {
+  props:{
+    isPurple:{
+      type:Boolean,
+      required:false
+    }
+  }
+};
 </script>
 
-<style></style>
+<style lang="sass">
+@import "@/assets/styles/components/sections/about-us"
+</style>
+

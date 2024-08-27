@@ -5,49 +5,90 @@
 @import "bootstrap/scss/mixins/_breakpoints";
 
 .services {
-    height: 100vh;
     border: 1px solid $white;
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
 
 
     &__business {
         border: 1px solid $white;
-        margin-top: 100px;
+        margin-top: 120px;
         background-color: $heritage;
-        height: 800px;
         width: 95%;
         display: flex;
-
+        padding:  50px 10px;
         border-radius: 30PX;
         text-align: center;
         flex-direction: column;
 
 
         h1 {
+            font-size: 82px;
+            margin-bottom: 10px;
             color: $black;
-            font-size: 60px;
-            margin-top: 40px;
-        }
+            line-height: 1;
+            text-align: center;
+    
+            @include media-breakpoint-down(lg) {
+                font-size: 62px;
+                
+            }
+            }
 
         p {
             font-family: $font-family--secondary;
+            @include media-breakpoint-down(lg){
+                max-width: 450px;
+                margin: 0 auto;
+            }
         }
 
     }
+
 
     &__cards {
         display: flex;
         flex-direction: row;
         gap: 20px;
-        padding: 20px 10px;
+        padding: 20px 0px;
         justify-content: center;
         align-items: center;
+        flex-wrap: wrap;
 
 
     }
 
-   
+    &__card {
+        border: 1px solid $white;
+        display: flex;
+        border-radius: 40px;
+        padding: 30px;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        width: 25%;
+        gap: 20px;
+        transition: all .2s linear;
+        @include media-breakpoint-down(xl){
+            width: 48%;
+        }
+        @include media-breakpoint-down(md){
+            width: 100%;
+        }
+
+        &:hover {
+            background-color: $white;
+            cursor: pointer;
+            transition: all .2s linear;
+        }
+    
+    }
+
+  
+
 
     &__background {
         background-color: $light-green;
@@ -74,7 +115,7 @@
 
         h4 {
             text-align: left;
-            
+
         }
 
         p {
@@ -82,27 +123,10 @@
         }
     }
 
-    &__card {
-        border: 1px solid $white;
-        display: flex;
-        border-radius: 40px;
-        padding: 30px;
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        width: 25%;
-        
-        gap: 20px;
-        transition: all .2s linear
-       
+    
 
+   
 
-    }
-        &__card:hover {
-            background-color: $white;
-            cursor: pointer;
-            transition: all .2s linear;
-        }
+   
 
 }
