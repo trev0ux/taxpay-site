@@ -34,4 +34,6 @@ export default {
 };
 </script>
 
-<style></style>
+<style lang="sass">
+@import "@/assets/styles/components/sections/team"
+</style>
