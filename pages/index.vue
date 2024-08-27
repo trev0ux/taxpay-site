@@ -4,13 +4,8 @@
     <culture></culture>
     <services></services>
     <about-us></about-us>
-    <!-- <h1>Homepage</h1>
-    <h2>Recent Posts</h2>
-    <ul>
-      <li v-for="post in posts" :key="post.slug">
-        <h3>{{ post.title }}</h3>
-      </li>
-    </ul> -->
+    <team></team>
+    <testimonials></testimonials>
   </div>
 </template>
 
@@ -21,6 +16,8 @@ import Banner from "@/components/sections/banner";
 import Culture from "@/components/sections/culture";
 import Services from "@/components/sections/services";
 import AboutUs from "@/components/sections/about-us";
+import Team from "@/components/sections/team";
+import Testimonials from "@/components/sections/testimonials";
 
 export default {
   mounted() {
@@ -30,27 +27,9 @@ export default {
     Banner,
     Culture,
     Services,
-    AboutUs
-  },
-  setup() {
-    const breakpoints = {
-      1440: {
-        allowTouchMove: false,
-        slidesPerView: 4,
-        spaceBetween: 32,
-      },
-      768: {
-        slidesPerView: 2.5,
-        spaceBetween: 12,
-      },
-      375: {
-        slidesPerView: 1.2,
-        spaceBetween: 16,
-      },
-    };
-    return {
-      breakpoints,
-    };
+    AboutUs,
+    Team,
+    Testimonials
   },
   methods: {
     async fetchData() {
