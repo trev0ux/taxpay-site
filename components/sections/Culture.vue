@@ -88,3 +88,7 @@ const breakpoints = {
   },
 };
 </script>
+
+<style lang="sass">
+@import "@/assets/styles/components/sections/culture"
+</style>

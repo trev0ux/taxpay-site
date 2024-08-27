@@ -1,13 +1,31 @@
 <template>
   <header class="container position-relative">
     <div class="nav-menu">
-    <NuxtImg src="/logo.svg" alt="TaxPay Logo"></NuxtImg>
-    <ul>
-      <li class="nav-menu__item"><NuxtLink to="/servicos">Nossos Serviços</NuxtLink></li>
-      <li class="nav-menu__item"><NuxtLink to="/quem-somos">Quem Somos</NuxtLink></li>
-      <li class="nav-menu__item"><NuxtLink to="/equipe">Equipe</NuxtLink></li>
-      <li class="nav-menu__item nav-menu__item--active"><NuxtLink to="/contato">Contato</NuxtLink></li>
-    </ul>
+      <NuxtLink to="/">
+        <NuxtImg src="/logo.svg" alt="TaxPay Logo"></NuxtImg>
+      </NuxtLink>
+      <ul>
+        <li>
+          <NuxtLink to="/servicos" class="nav-menu__item"  active-class="nav-menu__item--active"
+            >Nossos Serviços</NuxtLink
+          >
+        </li>
+        <li>
+          <NuxtLink to="/quem-somos" class="nav-menu__item" active-class="nav-menu__item--active"
+            >Quem Somos</NuxtLink
+          >
+        </li>
+        <li>
+          <NuxtLink to="/equipe" class="nav-menu__item" active-class="nav-menu__item--active"
+            >Equipe</NuxtLink
+          >
+        </li>
+        <li>
+          <NuxtLink to="/contato" class="nav-menu__item" active-class="nav-menu__item--active"
+            >Contato</NuxtLink
+          >
+        </li>
+      </ul>
       <NuxtLink class="nav-menu__contact btn btn-primary">
         Entrar em contato
         <span>
@@ -24,9 +42,7 @@
 </template>
 
 <script>
-export default {
-
-}
+export default {};
 </script>
 
 <style lang="sass">

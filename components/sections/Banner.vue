@@ -164,3 +164,7 @@ export default {
   },
 };
 </script>
+
+<style lang="sass">
+@import "@/assets/styles/components/sections/hero-banner"
+</style>

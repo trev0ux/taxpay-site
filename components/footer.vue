@@ -1,14 +1,14 @@
 <template>
   <footer class="footer">
     <div class="container">
-
-
       <div>
         <NuxtImg class="footer__logo" src="/logo.svg" alt=""></NuxtImg>
 
-        <h4 class="footer__subscribe">INSCREVA-SE EM NOSSA NEWSLETTER E RECEBA NOVIDADES.</h4>
+        <h4 class="footer__subscribe">
+          INSCREVA-SE EM NOSSA NEWSLETTER E RECEBA NOVIDADES.
+        </h4>
         <div class="footer__input-email">
-          <input class="form-control" placeholder="Seu email" type="text">
+          <input class="form-control" placeholder="Seu email" type="text" />
 
           <button class="btn btn-primary">
             inscrever
@@ -18,7 +18,6 @@
           </button>
         </div>
       </div>
-
 
       <div class="footer__maps">
         <h4>MAPA DO SITE</h4>
@@ -30,7 +29,6 @@
         </ul>
       </div>
 
-
       <div class="footer__services">
         <h4>Serviços</h4>
         <ul>
@@ -41,7 +39,6 @@
         </ul>
       </div>
 
-
       <div class="footer__contacts">
         <h4>Contato</h4>
         <ul>
@@ -49,25 +46,22 @@
           <li>atendimento@taxpay.com.br</li>
         </ul>
 
-        <button class="btn btn-primary">ENTRAR EM CONTATO
+        <button class="btn btn-primary">
+          ENTRAR EM CONTATO
           <span>
             <NuxtImg src="/chevron.png" alt="Seta para direita"></NuxtImg>
           </span>
         </button>
-
       </div>
-
-
-
-
-
     </div>
-
 
     <div class="container">
       <div class="footer__rights">
         <p>TAXPAY</p>
-        <P>Endereço Avenida Lorem Ipsum - Lorem Ipsumm Lorem Ipsum XXX - Lorem Ipsum</P>
+        <P
+          >Endereço Avenida Lorem Ipsum - Lorem Ipsumm Lorem Ipsum XXX - Lorem
+          Ipsum</P
+        >
 
         <ul>
           <li>
@@ -85,13 +79,9 @@
               <Icon name="LinkedinIcon"></Icon>
             </NuxtLink>
           </li>
-         
         </ul>
-
       </div>
     </div>
-
-
   </footer>
 </template>
 
