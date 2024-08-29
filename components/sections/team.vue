@@ -3,34 +3,20 @@
     <h2>Team</h2>
     <div class="container">
       <div class="team__members">
-        <figure>
-          <NuxtLink>
-            <Icon name="LinkedinIcon"></Icon>
-          </NuxtLink>
-          <NuxtImg src="/image-1.png"></NuxtImg>
-          <h3>Name Surname</h3>
-          <p>Funçao Taxpay</p>
-        </figure>
-        <figure>
-          <NuxtLink>
-            <Icon name="LinkedinIcon"></Icon>
-          </NuxtLink>
-          <NuxtImg src="/image-1.png"></NuxtImg>
-          <h3>Name Surname</h3>
-          <p>Funçao Taxpay</p>
-        </figure>
+        <team-member></team-member>
+        <team-member></team-member>
       </div>
     </div>
   </section>
 </template>
 
 <script>
-import { Icon } from "#components";
+import TeamMember from '../team-member.vue';
 
 export default {
   components: {
-    Icon,
-  },
+    TeamMember,
+  }
 };
 </script>
 
