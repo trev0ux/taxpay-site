@@ -8,9 +8,10 @@
 .about-us {
     background-color: $light-green;
     border-radius: 60px;
-    margin: 60px 2.5%;
+    margin: 60px 2.5% ;
     width: 95%;
     padding: 60px 0;
+   
 
     @include media-breakpoint-down(lg) {
         flex-wrap: wrap;
@@ -24,6 +25,12 @@
         background-color: $cold-lips;
     }
 
+    &--green{
+        background-color: $light-green;
+     
+
+    }
+
     &__container {
         display: flex;
         align-items: center;
@@ -34,6 +41,8 @@
             justify-content: center;
             gap: 32px;
         }
+
+       
     }
 
     &__image {
@@ -67,6 +76,7 @@
             color: $black;
             max-width: 420px;
             line-height: 1;
+            
 
             @include media-breakpoint-down(lg) {
                 font-size: 62px;

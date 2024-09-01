@@ -1,0 +1,129 @@
+@import "../_base/typography";
+@import "../_base/variables";
+@import "bootstrap/scss/_functions";
+@import "bootstrap/scss/_variables";
+@import "bootstrap/scss/mixins/_breakpoints";
+@import "swiper/css/navigation";
+
+
+
+.team-member {
+    z-index: 1;
+    height: 280px;
+    width: 100%;
+    flex: none;
+    object-fit: cover;
+
+    @include media-breakpoint-down(md) {
+        height: 280px;
+    }
+
+    img {
+        object-fit: cover;
+        border-radius: 20px;
+    }
+
+    h3 {
+        padding: 0px 5px;
+        margin-bottom: -10px;
+
+        @include media-breakpoint-down(lg) {
+            padding: 0px;
+        }
+    }
+}
+
+
+p {
+    padding: 0px 5px;
+    margin-bottom: -10px;
+
+    @include media-breakpoint-down(lg) {}
+}
+
+
+.team-page {
+    border-radius: 60px;
+    padding: 30px 0px 60px;
+    background-color: $white-edgar;
+    margin: 0px  2.5% 60px  ;
+    width: 95%;
+
+    @include media-breakpoint-down(xl) {}
+    h2 {
+        font-size: 60px;
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        color: $black;
+        margin-bottom: 50px;
+       
+    }
+
+
+
+
+
+    &__members {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+        align-items: center;
+
+        @include media-breakpoint-down(xl) {
+        }
+
+        @include media-breakpoint-down(md) {
+          
+        }
+    }
+
+
+
+    &__cards:nth-child(-n+2) {
+        width: 48%;
+        @include media-breakpoint-down(md){
+            width: 100%;
+        }
+
+        .team-member {
+            height: 340px;
+            display: flex;
+
+            @include media-breakpoint-down(md) {
+                height: 280px;
+            }
+        
+
+            
+            h3,
+            p {
+                padding: 0px 40px;
+                margin-bottom: -5px;
+
+                @include media-breakpoint-down(xl) {
+                    padding: 0px;
+                }
+               
+            }
+        }
+    }
+
+    &__cards:nth-child(n+3) {
+        display: flex;
+        flex-wrap: wrap;
+        width: calc(25% - 20px);
+
+        @include media-breakpoint-down(lg) {
+            width: 48%;
+        }
+
+        @include media-breakpoint-down(md){
+            width: 100%;
+        }
+    }
+
+}
+
+
