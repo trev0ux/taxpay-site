@@ -5,28 +5,17 @@
 
       <article class="services__container">
         <div class="services__accordion-item">
-          <div
-            v-for="(service, index) in services"
-            :key="service.title"
-            class="services__item"
-          >
-            <h3
-              @click="toggleService(index)"
-              :class="
-                'services__title ' +
-                (index === currentIndex
-                  ? 'services__accordion-item--active'
-                  : '')
-              "
-            >
+          <div v-for="(service, index) in services" :key="service.title" class="services__item">
+            <h3 @click="toggleService(index)" :class="'services__title ' +
+              (index === currentIndex
+                ? 'services__accordion-item--active'
+                : '')
+              ">
               {{ service.title }}
               <Icon name="ChevronIcon"></Icon>
-              <span
-                class="services__progress-bar"
-                :style="{
-                  height: index === currentIndex ? `${progress}%` : '0%',
-                }"
-              ></span>
+              <span class="services__progress-bar" :style="{
+                height: index === currentIndex ? `${progress}%` : '0%',
+              }"></span>
             </h3>
             <transition name="accordion">
               <p v-show="index === currentIndex">
@@ -35,10 +24,10 @@
             </transition>
           </div>
         </div>
-        <figure>
-          <NuxtImg src="/image-1.png" alt="Image 1"></NuxtImg>
-          <NuxtImg src="/image-1.png" alt="Image 1"></NuxtImg>
-          <NuxtImg src="/image-1.png" alt="Image 1"></NuxtImg>
+        <figure v-if="howItWorks">
+          <NuxtImg v-for="(item, index) in howItWorks.imagens" :key="index" :src="item.node.mediaItemUrl" alt="Image 1">
+          </NuxtImg>
+
         </figure>
       </article>
     </div>
@@ -48,9 +37,15 @@
 <script>
 import { Icon } from "#components";
 
+
+
 export default {
   components: {
     Icon
+  },
+
+  props: {
+    howItWorks: Array
   },
   data() {
     return {
