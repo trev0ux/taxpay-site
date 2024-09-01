@@ -1,6 +1,6 @@
 <template>
   <figure :class="'team-member ' + (size == 'lg' ? 'team__member--lg' : '')">
-    <NuxtLink>
+    <NuxtLink  v-if="size === 'lg'">
       <Icon name="LinkedinIcon"></Icon>
     </NuxtLink>
     <NuxtImg src="/image-1.png"></NuxtImg>

@@ -15,6 +15,8 @@
     flex-direction: column;
     justify-content: end;
     cursor: pointer;
+    z-index: 1;
+    margin-bottom: 0px;
 
     @include media-breakpoint-down(lg) {
         min-height: 200px;
