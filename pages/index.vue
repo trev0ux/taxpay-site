@@ -1,6 +1,6 @@
 <template>
   <div>
-    <banner></banner>
+    <banner :banner="banner"></banner>
     <culture></culture>
     <services></services>
     <about-us></about-us>
@@ -23,6 +23,11 @@ export default {
   mounted() {
     this.fetchData();
   },
+  data() {
+    return {
+      banner: []
+    }
+  },
   components: {
     Banner,
     Culture,
@@ -37,7 +42,8 @@ export default {
       try {
         const response = await $axios.post("", { query: HOMEPAGE_QUERY });
         const { data } = response.data;
-        this.posts = data.posts.nodes;
+        this.banner = data.page.banner
+        console.log(data);
       } catch (error) {
         console.error("Error fetching data:", error);
         return {

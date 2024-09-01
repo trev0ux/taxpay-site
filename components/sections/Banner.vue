@@ -29,24 +29,21 @@
       :draggable="true"
     >
       <swiper-slide
-        v-for="(item, index) in items"
+        v-for="(item, index) in banner"
         :key="index"
         class="hero-banner__swiper"
       >
         <figure
-          :style="{ backgroundImage: `url(${item.image})` }"
-          :alt="item.alt"
+          :style="{ backgroundImage: `url(${item.node.mediaItemUrl})` }"
+          :alt="item.node.altText"
           class="hero-banner__background"
         ></figure>
         <div class="container hero-banner__container">
           <div class="hero-banner__content">
             <div>
-              <h1>Menos é mais.</h1>
-              <p>
-                Suspendisse ultrices urna turpis, eu rutrum nulla sodales eget.
-                Phasellus tincidunt mi odio, eget molestie esturna turpis, eu
-                rutrum.
-              </p>
+              <h1>{{ item.node.title }}</h1>
+              <div v-html="item.node.description">
+              </div>
             </div>
             <button class="btn btn-primary">
               Entre em contato
@@ -105,6 +102,9 @@ export default {
         { image: "/image-1.png", alt: "Image 4" },
       ],
     };
+  },
+  props: {
+    banner: Array
   },
   setup() {
     const slides = ref([
