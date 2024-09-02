@@ -16,6 +16,9 @@ import TeamMember from '../team-member.vue';
 export default {
   components: {
     TeamMember,
+  },
+  props: {
+    teams: Object
   }
 };
 </script>

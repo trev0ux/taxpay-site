@@ -21,7 +21,6 @@
     &__members {
         display: flex;
         gap: 16px;
-        flex-wrap: wrap;
 
         @include media-breakpoint-down(lg) {
             flex-direction: column;

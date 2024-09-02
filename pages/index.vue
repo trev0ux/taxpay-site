@@ -1,11 +1,11 @@
 <template>
   <div>
-    <banner :banner="banner"></banner>
-    <culture :culture="culture"></culture>
-    <services :howItWorks="howItWorks"></services>
-    <about-us></about-us>
-    <team></team>
-    <testimonials></testimonials>
+    <banner :banner="banner" v-if="banner"></banner>
+    <culture :culture="culture" v-if="culture"></culture>
+    <how-it-works :how-it-works="howItWorks" v-if="howItWorks"></how-it-works>
+     <about-us :content="aboutUs" v-if="aboutUs"></about-us>
+    <team :team="team" v-if="team"></team>
+    <testimonials :testimonials="testimonials" v-if="testimonials"></testimonials>
   </div>
 </template>
 
@@ -14,7 +14,7 @@ import { HOMEPAGE_QUERY } from "~/graphql/queries";
 import { useNuxtApp } from "#app";
 import Banner from "@/components/sections/banner";
 import Culture from "@/components/sections/culture";
-import Services from "@/components/sections/services";
+import HowItWorks from "@/components/sections/how-it-works";
 import AboutUs from "@/components/sections/about-us";
 import Team from "@/components/sections/team";
 import Testimonials from "@/components/sections/testimonials";
@@ -27,13 +27,16 @@ export default {
     return {
       banner: [],
       culture: [],
-      services: []
+      services: [],
+      aboutUs: [],
+      team: [],
+      testimonials: []
     }
   },
   components: {
     Banner,
     Culture,
-    Services,
+    HowItWorks,
     AboutUs,
     Team,
     Testimonials
@@ -44,16 +47,15 @@ export default {
       try {
         const response = await $axios.post("", { query: HOMEPAGE_QUERY });
         const { data } = response.data;
+        console.log(data.page)
         this.banner = data.page.banner
-        console.log(data);
-        this.culture = data.page.cultura
-        this.howItWorks = data.page.comoFunciona
+        this.culture = data.page.cultura;
+        this.howItWorks = data.page.comoFunciona;
+        this.aboutUs = data.page.sobreNos;
+        this.team = data.page.timePreview;
+
       } catch (error) {
         console.error("Error fetching data:", error);
-        return {
-          posts: [],
-          homepageContent: "",
-        };
       }
     },
   },

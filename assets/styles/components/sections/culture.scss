@@ -63,7 +63,7 @@
         p {
             font-family: $font-family--secondary;
             margin-bottom: 90px;
-            @include media-breakpoint-down(lg) {
+            @include media-breakpoint-down(xl) {
                 text-align: center;
                 margin-bottom: 80px;
             }
@@ -141,6 +141,8 @@
 
             img {
                 width: 50px;
+                height: 50px;
+                object-fit: contain;
             }
         }
     }

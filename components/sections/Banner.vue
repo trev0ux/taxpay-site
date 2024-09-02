@@ -16,6 +16,10 @@
         </li>
       </ul>
     </aside>
+    <div
+      :style="{ backgroundColor: `${currentBanner}` }"
+      class="hero-banner__background-color"
+    ></div>
     <swiper
       loop
       :modules="modules"
@@ -29,21 +33,19 @@
       :draggable="true"
     >
       <swiper-slide
-        v-for="(item, index) in banner"
+        v-for="(item, index) in banners"
         :key="index"
         class="hero-banner__swiper"
       >
         <figure
-          :style="{ backgroundImage: `url(${item.node.mediaItemUrl})` }"
-          :alt="item.node.altText"
+          :style="{ backgroundImage: `url(${item.banner.node.mediaItemUrl})` }"
           class="hero-banner__background"
         ></figure>
         <div class="container hero-banner__container">
           <div class="hero-banner__content">
             <div>
-              <h1>{{ item.node.title }}</h1>
-              <div v-html="item.node.description">
-              </div>
+              <h1>{{ item.banner.node.title }}</h1>
+              <div v-html="item.banner.node.description"></div>
             </div>
             <button class="btn btn-primary">
               Entre em contato
@@ -55,6 +57,8 @@
         </div>
       </swiper-slide>
     </swiper>
+    <div :style="{ backgroundColor: `${currentBanner}` }">
+
     <div class="custom-pagination hero-banner__bottom-pagination">
       <ul>
         <li
@@ -63,10 +67,11 @@
           :class="{ active: activeIndex === index }"
           @click="goToSlide(index)"
         >
-          <span>{{ index + 1 }}.</span> {{ slide.node.title }}
+          <span>{{ index + 1 }}.</span> {{ slide.banner.node.title }}
         </li>
       </ul>
     </div>
+  </div>
 
     <div class="custom-number-pagination hero-banner__number-pagination">
       <ul>
@@ -84,18 +89,26 @@
 </template>
 
 <script>
-import { A11y, Autoplay, Navigation, Pagination, Scrollbar } from "swiper/modules";
-import { watch } from "vue";
+import {
+  A11y,
+  Autoplay,
+  Navigation,
+  Pagination,
+  Scrollbar,
+} from "swiper/modules";
+import { watch, computed } from "vue";
 import { Icon } from "#components";
 
 import { Swiper, SwiperSlide } from "swiper/vue";
 
 export default {
   props: {
-    banner: Array
+    banner: Object,
   },
   setup(props) {
-    const banners = computed(() => Object.entries(props.banner).map(([key, value]) => ({ key, ...value })));
+    const banners = computed(() =>
+      Object.entries(props.banner).map(([key, value]) => ({ key, ...value }))
+    );
 
     const swiperInstance = ref(null);
     const activeIndex = ref(0);
@@ -109,7 +122,7 @@ export default {
     };
 
     const onSlideChange = (swiper) => {
-      activeIndex.value = swiper.activeIndex;
+      activeIndex.value = swiper.realIndex;
     };
 
     const onSwiper = (swiper) => {
@@ -123,28 +136,36 @@ export default {
       }
     };
 
+    const currentBanner = computed(() => {
+      if (activeIndex.value >= 0 && activeIndex.value < banners.value.length) {
+        return banners.value[activeIndex.value]?.backgroundColor || {};
+      } else {
+        return banners.value[0]?.backgroundColor || {};
+      }
+    });
+
     watch(
-      () => swiperInstance.value && swiperInstance.value.activeIndex,
+      () => swiperInstance.value && swiperInstance.value.realIndex,
       (newIndex) => {
         activeIndex.value = newIndex;
-        console.log(newIndex);
       }
     );
     return {
       onSwiper,
       banners,
+      currentBanner,
       swiperInstance,
       swiperOptions,
       onSlideChange,
       activeIndex,
       goToSlide,
-      modules: [Navigation, Pagination, Scrollbar, Autoplay, A11y],
+      modules: [Navigation, Pagination, Scrollbar, A11y, Autoplay],
     };
   },
   components: {
     Swiper,
     SwiperSlide,
-    Icon
+    Icon,
   },
 };
 </script>

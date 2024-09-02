@@ -8,11 +8,11 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background-color: transparent;
     padding-top: 32px;
     padding-bottom: 32px;
     width: 100%;
     left: 0;
-    position: absolute;
     z-index: 2;
 
     @include media-breakpoint-down(lg) {

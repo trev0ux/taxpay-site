@@ -10,40 +10,52 @@ export const HOMEPAGE_QUERY = `
         content
         banner {
           banner1 {
-            node {
-              id
-              title
-              description
-              mediaItemUrl
-              altText
+            banner {
+               node {
+                id
+                title
+                description
+                mediaItemUrl
+                altText
+              }
             }
+            backgroundColor
           }
           banner2 {
-            node {
-              id
-              title
-              description
-              mediaItemUrl
-              altText
+            banner {
+               node {
+                id
+                title
+                description
+                mediaItemUrl
+                altText
+              }
             }
+            backgroundColor
           }
           banner3 {
-            node {
-              id
-              title
-              description
-              mediaItemUrl
-              altText
+            banner {
+               node {
+                id
+                title
+                description
+                mediaItemUrl
+                altText
+              }
             }
+            backgroundColor
           }
           banner4 {
-            node {
-              id
-              title
-              description
-              mediaItemUrl
-              altText
+            banner {
+               node {
+                id
+                title
+                description
+                mediaItemUrl
+                altText
+              }
             }
+            backgroundColor
           }
         }
         cultura {
@@ -142,7 +154,8 @@ export const HOMEPAGE_QUERY = `
           imagem {
             node {
               id
-              uri
+              mediaItemUrl
+              altText
             }
           }
         }
