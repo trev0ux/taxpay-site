@@ -17,12 +17,12 @@
       </ul>
     </aside>
     <swiper
-      :loop="true"
+      loop
       :modules="modules"
       :navigation="true"
       :slides-per-view="1"
       :space-between="0"
-      :auto-play="true"
+      :autoplay="{ delay: 3000, disableOnInteraction: false }"
       @slideChange="onSlideChange"
       @swiper="onSwiper"
       :pagination="false"
@@ -58,12 +58,12 @@
     <div class="custom-pagination hero-banner__bottom-pagination">
       <ul>
         <li
-          v-for="(slide, index) in slides"
+          v-for="(slide, index) in banners"
           :key="index"
           :class="{ active: activeIndex === index }"
           @click="goToSlide(index)"
         >
-          <span>{{ index + 1 }}.</span> {{ slide.title }}
+          <span>{{ index + 1 }}.</span> {{ slide.node.title }}
         </li>
       </ul>
     </div>
@@ -71,7 +71,7 @@
     <div class="custom-number-pagination hero-banner__number-pagination">
       <ul>
         <li
-          v-for="(slide, index) in slides"
+          v-for="(slide, index) in banners"
           :key="index"
           :class="{ active: activeIndex === index }"
           @click="goToSlide(index)"
@@ -84,35 +84,18 @@
 </template>
 
 <script>
-import { A11y, Navigation, Pagination, Scrollbar } from "swiper/modules";
+import { A11y, Autoplay, Navigation, Pagination, Scrollbar } from "swiper/modules";
 import { watch } from "vue";
 import { Icon } from "#components";
 
 import { Swiper, SwiperSlide } from "swiper/vue";
 
 export default {
-  data() {
-    return {
-      homepageContent: null,
-      posts: null,
-      items: [
-        { image: "/image-1.png", alt: "Image 1" },
-        { image: "/image-1.png", alt: "Image 2" },
-        { image: "/image-1.png", alt: "Image 3" },
-        { image: "/image-1.png", alt: "Image 4" },
-      ],
-    };
-  },
   props: {
     banner: Array
   },
-  setup() {
-    const slides = ref([
-      { title: "Reduz tributo, aumenta lucro" },
-      { title: "Outra vantagem" },
-      { title: "Mais um benefício" },
-      { title: "Último destaque" },
-    ]);
+  setup(props) {
+    const banners = computed(() => Object.entries(props.banner).map(([key, value]) => ({ key, ...value })));
 
     const swiperInstance = ref(null);
     const activeIndex = ref(0);
@@ -135,8 +118,8 @@ export default {
 
     const goToSlide = (index) => {
       if (swiperInstance.value) {
-        swiperInstance.value.slideToLoop(index); // Use slideToLoop to handle looping
-        activeIndex.value = index; // Manually set active index when navigating
+        swiperInstance.value.slideToLoop(index);
+        activeIndex.value = index;
       }
     };
 
@@ -144,17 +127,18 @@ export default {
       () => swiperInstance.value && swiperInstance.value.activeIndex,
       (newIndex) => {
         activeIndex.value = newIndex;
+        console.log(newIndex);
       }
     );
     return {
       onSwiper,
-      slides,
+      banners,
       swiperInstance,
       swiperOptions,
       onSlideChange,
       activeIndex,
       goToSlide,
-      modules: [Navigation, Pagination, Scrollbar, A11y],
+      modules: [Navigation, Pagination, Scrollbar, Autoplay, A11y],
     };
   },
   components: {

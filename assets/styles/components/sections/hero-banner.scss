@@ -70,7 +70,8 @@
         height: 100%;
         background-size: cover;
         z-index: -1;
-        background-position: -10px 50px;
+        background-position: -10px center;
+        background-repeat: no-repeat;
         margin-bottom: 0;
 
         @include media-breakpoint-down(lg) {
