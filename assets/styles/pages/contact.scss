@@ -1,0 +1,101 @@
+@import "../_base/typography";
+@import "../_base/variables";
+@import "bootstrap/scss/_functions";
+@import "bootstrap/scss/_variables";
+@import "bootstrap/scss/mixins/_breakpoints";
+@import "swiper/css/navigation";
+
+.contact {
+ 
+
+    background-color: $heritage;
+    border-radius: 60px;
+    margin: 0px 2.5% 60px;
+    width: 95%;
+    padding: 60px 0;
+
+    @include media-breakpoint-down(lg){
+        border-radius: 30px;
+    }
+
+    >div {
+        display: flex;
+        flex-direction: row;
+        gap: 100px;
+
+        @include media-breakpoint-down(lg){
+            display: flex;
+            flex-direction: column;
+        }
+
+        @include media-breakpoint-down(xl){
+            gap: 50px;
+        }
+
+       
+    }
+
+    &__information {
+        width: 30%;
+
+        @include media-breakpoint-down(lg){
+            width: 100%;
+        }
+
+        h2 {
+            font-size: 65px;
+            margin-bottom: 32px;
+            color: #000;
+            max-width: 420px;
+            line-height: 1;
+            margin-bottom: 60px;
+
+            @include media-breakpoint-down(xl){
+                margin-bottom: 40px;
+            }
+            
+        }
+
+        p:first-of-type {
+           margin-bottom: 20px;
+        }
+        p{
+            font-family: $font-family--secondary;
+            font-size: 15px;
+            margin-bottom: 2px;
+
+        }
+    
+    }
+
+    &__forms{
+        font-family: $font-family--secondary;
+        width: 70%;
+
+        @include media-breakpoint-down(lg){
+            width: 100%;
+        }
+
+        .form-label{
+            font-weight: $font-weight--bold ;
+            margin-bottom: 2px;
+            color: $black;
+            @include font-size($font-small);
+        }
+
+        input, select{
+            border-radius: 50px;
+            border: none;
+        }
+
+        textarea{
+            border-radius: 15px;
+            border: none;
+        }
+
+        button{
+            margin-top: 30px;
+           
+        }
+    }
+}
