@@ -55,7 +55,8 @@ export const HOMEPAGE_QUERY = `
               imagem {
                 node {
                   id
-                  uri
+                  mediaItemUrl
+                  altText
                 }
               }
             }
@@ -64,7 +65,8 @@ export const HOMEPAGE_QUERY = `
               imagem {
                 node {
                   id
-                  uri
+                  mediaItemUrl
+                  altText
                 }
               }
             }
@@ -73,7 +75,8 @@ export const HOMEPAGE_QUERY = `
               imagem {
                 node {
                   id
-                  uri
+                 mediaItemUrl
+                 altText
                 }
               }
             }
@@ -82,7 +85,8 @@ export const HOMEPAGE_QUERY = `
               imagem {
                 node {
                   id
-                  uri
+                  mediaItemUrl
+                  altText
                 }
               }
             }
@@ -112,19 +116,22 @@ export const HOMEPAGE_QUERY = `
             imagem1 {
               node {
                 id
-                uri
+                mediaItemUrl
+                altText
               }
             }
             imagem2 {
               node {
                 id
-                uri
+                mediaItemUrl
+                altText
               }
             }
             imagem3 {
               node {
                 id
-                uri
+                mediaItemUrl
+                altText
               }
             }
           }

@@ -49,8 +49,13 @@ p {
     margin: 0px  2.5% 60px  ;
     width: 95%;
 
+    @include media-breakpoint-down(lg){
+        border-radius: 30px;
+    }
+
+
     @include media-breakpoint-down(xl) {}
-    h2 {
+    h2 { 
         font-size: 60px;
         align-items: center;
         display: flex;

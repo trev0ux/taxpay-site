@@ -1,8 +1,8 @@
 <template>
   <div>
     <banner :banner="banner"></banner>
-    <culture></culture>
-    <services></services>
+    <culture :culture="culture"></culture>
+    <services :howItWorks="howItWorks"></services>
     <about-us></about-us>
     <team></team>
     <testimonials></testimonials>
@@ -25,7 +25,9 @@ export default {
   },
   data() {
     return {
-      banner: []
+      banner: [],
+      culture: [],
+      services: []
     }
   },
   components: {
@@ -44,6 +46,8 @@ export default {
         const { data } = response.data;
         this.banner = data.page.banner
         console.log(data);
+        this.culture = data.page.cultura
+        this.howItWorks = data.page.comoFunciona
       } catch (error) {
         console.error("Error fetching data:", error);
         return {

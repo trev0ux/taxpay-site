@@ -2,8 +2,8 @@
   <section class="company-culture">
     <div class="container company-culture__container">
       <article class="company-culture__text">
-        <h2>Mudar a realidade E A contabilidade das empresas.</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspen</p>
+        <h2>{{ culture.titulo }}</h2>
+        <p> {{ culture.descricao }} </p>
         <button class="btn btn-primary">
           Entre em contato
           <span>
@@ -13,45 +13,16 @@
       </article>
       <article class="company-culture__boxes">
         <swiper :breakpoints="breakpoints">
-          <swiper-slide>
+          
+          <swiper-slide  v-for="(item, index) in culture.items" :key="index">
             <div class="company-culture__item">
               <div>
                 <NuxtImg
-                  src="/money-icon.png"
-                  alt="Seta para direita"
+                  :src="item.imagem.node.mediaItemUrl"
+                  :alt="item.imagem.node.altText"
                 ></NuxtImg>
               </div>
-              <h3>lOREM ipsum dolor sit amet</h3>
-            </div></swiper-slide
-          >
-          <swiper-slide>
-            <div class="company-culture__item">
-              <div>
-                <NuxtImg src="/doc-icon.png" alt="Seta para direita"></NuxtImg>
-              </div>
-              <h3>lOREM ipsum dolor sit amet</h3>
-            </div></swiper-slide
-          >
-          <swiper-slide>
-            <div class="company-culture__item">
-              <div>
-                <NuxtImg
-                  src="/calculator-icon.png"
-                  alt="Seta para direita"
-                ></NuxtImg>
-              </div>
-              <h3>lOREM ipsum dolor sit amet</h3>
-            </div></swiper-slide
-          >
-          <swiper-slide>
-            <div class="company-culture__item">
-              <div>
-                <NuxtImg
-                  src="/graph-icon.png"
-                  alt="Seta para direita"
-                ></NuxtImg>
-              </div>
-              <h3>lOREM ipsum dolor sit amet</h3>
+              <h3> {{ item.titulo }}</h3>
             </div>
           </swiper-slide>
         </swiper>
@@ -71,6 +42,11 @@
 <script setup>
 import { Swiper, SwiperSlide } from "swiper/vue";
 import "swiper/swiper-bundle.css";
+import { defineProps } from "vue";
+
+defineProps({
+  culture: Array
+});
 
 const breakpoints = {
   1440: {

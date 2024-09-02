@@ -21,6 +21,10 @@
         text-align: center;
         flex-direction: column;
 
+        @include media-breakpoint-down(lg){
+            border-radius: 30px;
+        }
+
         h1 {
             font-size: 82px;
             margin-bottom: 10px;
