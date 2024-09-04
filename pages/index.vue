@@ -53,6 +53,7 @@ export default {
         this.howItWorks = data.page.comoFunciona;
         this.aboutUs = data.page.sobreNos;
         this.team = data.page.timePreview;
+        this.testimonials = data.page.depoimentos
 
       } catch (error) {
         console.error("Error fetching data:", error);

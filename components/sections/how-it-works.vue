@@ -57,9 +57,12 @@ const props = defineProps({
   howItWorks: Object,
 });
 
+const isMobile = ref('ontouchstart' in document.documentElement);
+
+
 const items = computed(() => {
   if (!props.howItWorks?.itens) {
-    return []; // Return an empty array if `itens` is null or undefined
+    return [];
   }
 
   return Object.entries(props.howItWorks.itens).map(([key, value]) => ({
@@ -82,11 +85,16 @@ function startProgress() {
 function toggleService(index) {
   currentIndex.value = index;
   progress.value = 0;
-  startProgress();
+  
+  if(!isMobile.value) {
+    startProgress();
+  }
 }
 
 onMounted(() => {
-  startProgress();
+  if(!isMobile.value) {
+    startProgress();
+  }
 });
 
 onBeforeUnmount(() => {

@@ -1,7 +1,7 @@
 <template>
   <section class="testimonials">
     <div class="container">
-      <h2>Depoimentos de nossos clientes</h2>
+      <h2>{{ testimonials.titulo }}</h2>
       <div class="testimonials__swiper-container">
         <swiper
           :loop="true"
@@ -15,21 +15,21 @@
           :draggable="true"
         >
           <swiper-slide
-            v-for="(item, index) in items"
+            v-for="(item, index) in testimonials.depoimentos"
             :key="index"
             class="testimonials__swiper"
           >
             <div class="testimonials__item">
               <Icon name="QuotesIcon"></Icon>
               <h5>
-                {{ item.quotes }}
+                {{ item.citacao }}
               </h5>
-              <p>{{ item.comment }}</p>
+              <p>{{ item.comentario }}</p>
               <div class="testimonials__author">
-                <NuxtImg :src="item.image" :alt="item.name"></NuxtImg>
+                <NuxtImg :src="item.imagem.node.mediaItemUrl" :alt="item.nome"></NuxtImg>
                 <div>
-                  <h6>{{ item.author }}</h6>
-                  <p>{{ item.role }}</p>
+                  <h6>{{ item.nome}}</h6>
+                  <p>{{ item.cargo }}</p>
                 </div>
               </div>
             </div>
@@ -55,38 +55,41 @@ export default {
       items: [
         {
           image: "/image-1.png",
-          quotes: "Abigail",
-          comment: "Viadooo",
+          quotes: "Testeee",
+          comment: "testee",
           role: "CEO",
           alt: "Image 1",
           author: "Jerundio",
         },
         {
           image: "/image-1.png",
-          quotes: "Abigail",
-          comment: "Viadooo",
+          quotes: "Testeee",
+          comment: "testee",
           role: "CEO",
           alt: "Image 1",
           author: "Jerundio",
         },
         {
           image: "/image-1.png",
-          quotes: "Abigail",
-          comment: "Viadooo",
+          quotes: "Testeee",
+          comment: "testee",
           role: "CEO",
           alt: "Image 1",
           author: "Jerundio",
         },
         {
           image: "/image-1.png",
-          quotes: "Abigail",
-          comment: "Viadooo",
+          quotes: "Testeee",
+          comment: "testee",
           role: "CEO",
           alt: "Image 1",
           author: "Jerundio",
         },
       ],
     };
+  },
+  props: {
+    testimonials: Object
   },
   setup() {
     const prevEl = ref(null);
@@ -101,6 +104,10 @@ export default {
         spaceBetween: 12,
       },
       375: {
+        slidesPerView: 1,
+        spaceBetween: 16,
+      },
+      260: {
         slidesPerView: 1,
         spaceBetween: 16,
       },

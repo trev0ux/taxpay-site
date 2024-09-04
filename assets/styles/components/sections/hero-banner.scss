@@ -6,14 +6,6 @@
 
 .hero-banner {
 
-    @include media-breakpoint-down(lg) {
-        height: 80vh;
-    }
-
-    @include media-breakpoint-down(md) {
-        height: 100vh;
-    }
-
     h1 {
         font-size: 120px;
         margin-bottom: 40px;
@@ -25,6 +17,8 @@
         @include media-breakpoint-down(lg) {
             font-size: 92px;
             line-height: 1;
+            max-width: 100%;
+            padding-top: 80px;
             margin-bottom: 20px;
         }
     }
@@ -105,16 +99,6 @@
         }
     }
 
-    .swiper {
-
-        @include media-breakpoint-down(lg) {
-            height: 80vh;
-        }
-
-        @include media-breakpoint-down(md) {
-            height: 100vh;
-        }
-    }
 
     .swiper-wrapper {
         display: flex;
@@ -134,7 +118,6 @@
         }
 
         @include media-breakpoint-down(md) {
-            padding-top: 122px;
             justify-content: space-between;
         }
     }

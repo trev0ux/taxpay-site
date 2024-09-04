@@ -186,57 +186,59 @@ export const HOMEPAGE_QUERY = `
             }
           }
         }
-        depoimentos {
-          titulo
-          depoimentoDeClientes {
-            nomeDoCliente
-            citacao
-            comentario
-            cargo
-            imagem {
-              node {
-                id
-                uri
-              }
+     depoimentos {
+      titulo
+      depoimentos {
+        depoimento1 {
+          nome
+          citacao
+          comentario
+          imagem {
+            node {
+              id
+              mediaItemUrl
             }
           }
-          depoimentoDeClientes2 {
-            nomeDoCliente
-            citacao
-            comentario
-            cargo
-            imagem {
-              node {
-                id
-                uri
-              }
-            }
-          }
-          depoimentoDeClientes3 {
-            nomeDoCliente
-            citacao
-            comentario
-            cargo
-            imagem {
-              node {
-                id
-                uri
-              }
-            }
-          }
-          depoimentoDeClientes4 {
-            nomeDoCliente
-            citacao
-            comentario
-            cargo
-            imagem {
-              node {
-                id
-                uri
-              }
-            }
-          }
+          cargo
         }
+        depoimento2 {
+          nome
+          citacao
+          comentario
+          imagem {
+            node {
+              id
+              mediaItemUrl
+            }
+          }
+          cargo
+        }
+        depoimento3 {
+          nome
+          citacao
+          comentario
+          imagem {
+            node {
+              id
+              mediaItemUrl
+            }
+          }
+          cargo
+        }
+       depoimento4 {
+          nome
+          citacao
+          comentario
+          imagem {
+            node {
+              id
+              mediaItemUrl
+            }
+          }
+          cargo
+        }
+      }
+    }
     }
   }
 `;

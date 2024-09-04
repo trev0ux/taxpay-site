@@ -3,7 +3,7 @@
     <NuxtLink  v-if="size === 'lg'">
       <Icon name="LinkedinIcon"></Icon>
     </NuxtLink>
-    <NuxtImg src="/image-1.png"></NuxtImg>
+    <NuxtImg :src="image ? image : '/image-1.png'"></NuxtImg>
     <h3>{{ name }}</h3>
     <p>{{ role }}</p>
   </figure>
@@ -19,6 +19,10 @@ export default {
     name: {
         type: String,
         required: true
+    },
+    image: {
+      type: String,
+      required: true 
     },
     role: {
         type: String,

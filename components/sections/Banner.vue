@@ -159,7 +159,7 @@ export default {
       onSlideChange,
       activeIndex,
       goToSlide,
-      modules: [Navigation, Pagination, Scrollbar, A11y, Autoplay],
+      modules: [Navigation, Pagination, Scrollbar, A11y],
     };
   },
   components: {
