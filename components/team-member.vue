@@ -1,7 +1,7 @@
 <template>
   <figure :class="'team-member ' + (size == 'lg' ? 'team__member--lg' : '')">
     <NuxtLink  v-if="size === 'lg'">
-      <Icon name="LinkedinIcon"></Icon>
+      <Icon name="LinkedinIcon" v-if="linkedin"></Icon>
     </NuxtLink>
     <NuxtImg :src="image ? image : '/image-1.png'"></NuxtImg>
     <h3>{{ name }}</h3>
@@ -26,6 +26,10 @@ export default {
     },
     role: {
         type: String,
+        required: true
+    },
+    linkedin: {
+        type: Boolean,
         required: true
     },
     size: {
