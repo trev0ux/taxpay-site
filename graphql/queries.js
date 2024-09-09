@@ -242,3 +242,14 @@ export const HOMEPAGE_QUERY = `
     }
   }
 `;
+
+export const SERVICES_QUERY = `
+  query {
+    posts(first: 5) {
+      nodes {
+        title
+      }
+    }
+    page(id: "", idType: URI) {
+
+}`
