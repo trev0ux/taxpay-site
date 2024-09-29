@@ -1,11 +1,20 @@
 <template>
   <div>
+<head>
+  <title>TaxPay</title>
+  <html lang="pt-BR">
+
+  </html>
+  <meta name="description" content="Conheça a nossa equipe.">
+</head>
+  <div>
     <banner :banner="banner"></banner>
     <culture :culture="culture" v-if="culture"></culture>
     <how-it-works :how-it-works="howItWorks" v-if="howItWorks"></how-it-works>
      <about-us :content="aboutUs" v-if="aboutUs"></about-us>
     <team :team="team" v-if="team"></team>
     <testimonials :testimonials="testimonials" v-if="testimonials"></testimonials>
+  </div>
   </div>
 </template>
 

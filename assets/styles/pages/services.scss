@@ -31,6 +31,8 @@
             color: $black;
             line-height: 1;
             text-align: center;
+            font-family: "Bebas Neue";
+            font-display: swap;
 
             @include media-breakpoint-down(lg) {
                 font-size: 62px;
@@ -92,8 +94,8 @@
         align-items: center;
 
         img {
-            height: 50%;
-            width: 40%;
+            height: 55px;  /* Altura real */
+            width: 45px;   /* Largura real */
         }
     }
 
@@ -102,7 +104,7 @@
         display: flex;
         flex-direction: column;
 
-        h4 {
+        h2 {
             text-align: left;
         }
 

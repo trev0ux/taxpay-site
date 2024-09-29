@@ -3,7 +3,7 @@
     <div class="container company-culture__container">
       <article class="company-culture__text">
         <h2>{{ culture.titulo }}</h2>
-        <p> {{ culture.descricao }} </p>
+        <p>{{ culture.descricao }}</p>
         <button class="btn btn-primary">
           Entre em contato
           <span>
@@ -13,16 +13,15 @@
       </article>
       <article class="company-culture__boxes">
         <swiper :breakpoints="breakpoints">
-          
-          <swiper-slide  v-for="(item, index) in culture.items" :key="index">
+          <swiper-slide v-for="(item, index) in culture.items" :key="index">
             <div class="company-culture__item">
               <div>
                 <NuxtImg
                   :src="item.imagem.node.mediaItemUrl"
-                  :alt="item.imagem.node.altText"
+                  :alt="item.imagem.node.altText || 'Imagem representativa de ' + item.titulo"
                 ></NuxtImg>
               </div>
-              <h3> {{ item.titulo }}</h3>
+              <h3>{{ item.titulo }}</h3>
             </div>
           </swiper-slide>
         </swiper>

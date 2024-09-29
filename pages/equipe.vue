@@ -1,21 +1,30 @@
 <template>
-  <section class="team-page">
-    <div class="container">
+  <div>
+
+    <head>
+      <title>Equipe - TaxPay</title>
+      <html lang="pt-BR">
+
+      </html>
+      <meta name="description" content="Conheça a nossa equipe.">
+    </head>
+    <section class="team-page">
+      <div class="container">
 
 
-      <h2>Equipe</h2>
-      <div class="team-page__members ">
-        <div class="team-page__cards" v-for="(item, index) in teams" :key="item.name">
-          <team-member 
-          :name="item.name" :role="item.role" :size="index === 0 || index === 1 ? 'lg' : 'sm'"
-            :showLinkedInIcon="index < 2">
-          </team-member>
+        <h2>Equipe</h2>
+        <div class="team-page__members ">
+          <div class="team-page__cards" v-for="(item, index) in teams" :key="item.name">
+            <team-member :name="item.name" :role="item.role" :size="index === 0 || index === 1 ? 'lg' : 'sm'"
+              :showLinkedInIcon="index < 2">
+            </team-member>
+          </div>
         </div>
+
       </div>
 
-    </div>
-
-  </section>
+    </section>
+  </div>
 </template>
 
 <script>

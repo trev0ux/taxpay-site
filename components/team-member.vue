@@ -3,7 +3,10 @@
     <NuxtLink  v-if="size === 'lg'">
       <Icon name="LinkedinIcon" v-if="linkedin"></Icon>
     </NuxtLink>
-    <NuxtImg :src="image ? image : '/image-1.png'"></NuxtImg>
+    <NuxtImg
+    :src="image ? image : '/image-1.webp' "  
+    :alt="name ? `${name} - ${role}` : 'Imagem padrão'" >
+    </NuxtImg>
     <h3>{{ name }}</h3>
     <p>{{ role }}</p>
   </figure>

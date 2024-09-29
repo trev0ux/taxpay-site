@@ -4,9 +4,9 @@
       <div>
         <NuxtImg class="footer__logo" src="/logo.svg" alt=""></NuxtImg>
 
-        <h4 class="footer__subscribe">
+        <h3 class="footer__subscribe">
           INSCREVA-SE EM NOSSA NEWSLETTER E RECEBA NOVIDADES.
-        </h4>
+        </h3>
         <div class="footer__input-email">
           <input class="form-control" placeholder="Seu email" type="text" />
 
@@ -22,46 +22,43 @@
       <div class="footer__maps">
         <h4>MAPA DO SITE</h4>
         <ul>
-          <li><a href=""></a>nossos serviços</li>
-          <li><a href=""></a>quem somos</li>
-          <li><a href=""></a>equipe</li>
-          <li><a href=""></a>contato</li>
+          <li><a href="/servicos">Nossos serviços</a></li>
+          <li><a href="/quem-somos">Quem somos</a></li>
+          <li><a href="/equipe">Equipe</a></li>
+          <li><a href="/contato">Contato</a></li>
         </ul>
       </div>
 
       <div class="footer__services">
-        <h4>Serviços</h4>
-        <ul>
-          <li><a href=""></a>Lorem Ipsum</li>
-          <li><a href=""></a>Lorem Ipsum</li>
-          <li><a href=""></a>Lorem Ipsum</li>
-          <li><a href=""></a>Lorem Ipsum</li>
-        </ul>
-      </div>
+      <h4>Serviços</h4>
+      <ul>
+        <li><a href="#servico1">Lorem Ipsum</a></li>
+        <li><a href="#servico2">Lorem Ipsum</a></li>
+        <li><a href="#servico3">Lorem Ipsum</a></li>
+        <li><a href="#servico4">Lorem Ipsum</a></li>
+      </ul>
+    </div>
+    <div class="footer__contacts">
+      <h4>Contato</h4>
+      <ul>
+        <li>(44) x xxxx-xxxx</li>
+        <li>atendimento@taxpay.com.br</li>
+      </ul>
 
-      <div class="footer__contacts">
-        <h4>Contato</h4>
-        <ul>
-          <li>(44) x xxxx-xxxx</li>
-          <li>atendimento@taxpay.com.br</li>
-        </ul>
-
-        <button class="btn btn-primary">
-          ENTRAR EM CONTATO
-          <span>
-            <NuxtImg src="/chevron.png" alt="Seta para direita"></NuxtImg>
-          </span>
-        </button>
-      </div>
+      <button class="btn btn-primary">
+        ENTRAR EM CONTATO
+        <span>
+          <NuxtImg src="/chevron.png" alt="Seta para direita"></NuxtImg>
+        </span>
+      </button>
+    </div>
     </div>
 
     <div class="container">
       <div class="footer__rights">
         <p>TAXPAY</p>
-        <P
-          >Endereço Avenida Lorem Ipsum - Lorem Ipsumm Lorem Ipsum XXX - Lorem
-          Ipsum</P
-        >
+        <P>Endereço Avenida Lorem Ipsum - Lorem Ipsumm Lorem Ipsum XXX - Lorem
+          Ipsum</P>
 
         <ul>
           <li>
