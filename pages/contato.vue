@@ -1,11 +1,5 @@
 <template>
   <div>
-    <head>
-      <title>Entre em Contato - TaxPay</title>
-      <html lang="pt-BR"></html>
-      <meta name="description" content="Entre em contato conosco para obter mais informações sobre nossos serviços e suporte.">
-    </head>
-    
     <section class="contact">
       <div class="container">
         <div class="contact__information">
@@ -41,16 +35,16 @@
             <div class="row">
               <div class="col-md-6 mb-3">
                 <label for="estado" class="form-label">Estado</label>
-                <select id="estado" v-model="formData.estado" class="form-select" required>
-                  <option value="" disabled selected>Seu estado</option>
-                  <!-- Adicione outras opções aqui -->
+                <select id="estado" v-model="formData.estado" @change="fetchCities" class="form-select" required>
+                  <option value="" disabled selected>Escolha um estado</option>
+                  <option v-for="estado in estados" :key="estado.sigla" :value="estado.sigla">{{ estado.nome }}</option>
                 </select>
               </div>
               <div class="col-md-6 mb-3">
                 <label for="cidade" class="form-label">Cidade</label>
                 <select id="cidade" v-model="formData.cidade" class="form-select" required>
                   <option value="" disabled selected>Sua cidade</option>
-                  <!-- Adicione outras opções aqui -->
+                  <option v-for="cidade in cidades" :key="cidade.id" :value="cidade.nome">{{ cidade.nome }}</option>
                 </select>
               </div>
             </div>
@@ -73,7 +67,9 @@
 </template>
 
 <script>
-import axios from 'axios';
+import emailjs from 'emailjs-com';
+
+emailjs.init('2NsySIujxYNNAp7W_'); // Use sua chave pública aqui
 
 export default {
   data() {
@@ -86,17 +82,52 @@ export default {
         estado: '',
         cidade: '',
         mensagem: ''
-      }
+      },
+      estados: [],
+      cidades: []
     };
   },
+  created() {
+    this.fetchStates();
+  },
   methods: {
+    async fetchStates() {
+      try {
+        const response = await fetch('https://brasilapi.com.br/api/ibge/uf/v1');
+        const data = await response.json();
+        console.log('Estados retornados:', data);
+        this.estados = data; // Armazena os estados
+      } catch (error) {
+        console.error('Erro ao buscar estados:', error);
+      }
+    },
+    async fetchCities() {
+      try {
+        if (!this.formData.estado) return;
+        const response = await fetch(`https://servicodados.ibge.gov.br/api/v1/localidades/estados/${this.formData.estado}/distritos`);
+        const data = await response.json();
+        console.log('Cidades retornadas:', data);
+        this.cidades = data; // Atualiza a lista de cidades
+      } catch (error) {
+        console.error('Erro ao buscar cidades:', error);
+      }
+    },
     async handleSubmit() {
       try {
-        const response = await axios.post('/api/contact', this.formData);
-        console.log('Mensagem enviada:', response.data);
+        const result = await emailjs.send('service_zy6mkvk', 'template_5qry5wc', {
+          from_name: this.formData.nome,
+          from_email: this.formData.email,
+          telefone: this.formData.telefone,
+          estado: this.formData.estado,
+          cidade: this.formData.cidade,
+          tipoContato: this.formData.tipoContato,
+          message: this.formData.mensagem
+        });
+
+        console.log('Mensagem enviada:', result);
         this.resetForm();
-      } catch (error) {
-        console.error('Erro ao enviar mensagem:', error);
+      } catch (err) {
+        console.error('Erro ao enviar mensagem:', err);
       }
     },
     resetForm() {
@@ -109,6 +140,7 @@ export default {
         cidade: '',
         mensagem: ''
       };
+      this.cidades = [];
     }
   }
 };

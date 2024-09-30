@@ -16,12 +16,15 @@
     "@nuxtjs/axios": "^5.13.6",
     "axios": "^1.7.3",
     "bootstrap": "^5.3.3",
+    "emailjs": "^4.0.3",
+    "emailjs-com": "^3.2.0",
     "nuxt": "^3.12.4",
     "rfs": "^10.0.0",
     "sass": "^1.77.8",
     "sass-loader": "^16.0.0",
     "swiper": "^11.1.9",
-    "vue": "latest"
+    "vue": "latest",
+    "vue-multiselect": "^3.1.0"
   },
   "devDependencies": {
     "clean-css-cli": "^5.6.3",
