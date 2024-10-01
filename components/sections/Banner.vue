@@ -37,9 +37,7 @@
         :key="index"
         class="hero-banner__swiper"
       >
-        <figure
-          :style="{ backgroundImage: `url(${item.banner.node.mediaItemUrl})` }"
-        ></figure>
+        <NuxtImg class="hero-banner__background" :src="item.banner.node.mediaItemUrl" :alt="item.banner.node.altText"></NuxtImg>
         <div class="container hero-banner__container">
           <div class="hero-banner__content">
             <div>
@@ -157,7 +155,7 @@ export default {
       onSlideChange,
       activeIndex,
       goToSlide,
-      modules: [Navigation, Pagination, Scrollbar, A11y, Autoplay],
+      modules: [Navigation, Pagination, Scrollbar, A11y],
     };
   },
   components: {

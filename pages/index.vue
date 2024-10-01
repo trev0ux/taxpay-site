@@ -1,20 +1,16 @@
 <template>
   <div>
-<head>
-  <title>TaxPay</title>
-  <html lang="pt-BR">
-
-  </html>
-  <meta name="description" content="Conheça a nossa equipe.">
-</head>
-  <div>
-    <banner :banner="banner"></banner>
-    <culture :culture="culture" v-if="culture"></culture>
-    <how-it-works :how-it-works="howItWorks" v-if="howItWorks"></how-it-works>
-    <about-us :content="aboutUs" v-if="aboutUs"></about-us>
-    <team :team="team" v-if="team"></team>
-    <testimonials :testimonials="testimonials" v-if="testimonials"></testimonials>
-  </div>
+    <div v-if="loading">
+      <PreLoader />
+    </div>
+    <div v-else>
+      <banner :banner="banner"></banner>
+      <culture :culture="culture" v-if="culture"></culture>
+      <how-it-works :how-it-works="howItWorks" v-if="howItWorks"></how-it-works>
+      <about-us :content="aboutUs" v-if="aboutUs"></about-us>
+      <team :team="team" v-if="team"></team>
+      <testimonials :testimonials="testimonials" v-if="testimonials"></testimonials>
+    </div>
   </div>
 </template>
 
@@ -25,6 +21,7 @@ import HowItWorks from "@/components/sections/how-it-works";
 import AboutUs from "@/components/sections/about-us";
 import Team from "@/components/sections/team";
 import Testimonials from "@/components/sections/testimonials";
+import PreLoader from "@/components/PreLoader";
 import { useSiteContentStore } from "@/stores/index";
 
 export default {
@@ -35,7 +32,8 @@ export default {
       services: [],
       aboutUs: [],
       team: [],
-      testimonials: []
+      testimonials: [],
+      loading: true
     }
   },
   components: {
@@ -44,7 +42,8 @@ export default {
     HowItWorks,
     AboutUs,
     Team,
-    Testimonials
+    Testimonials,
+    PreLoader
   },
   async mounted() {
     this.fetchData();
@@ -53,14 +52,26 @@ export default {
     async fetchData() {
       const siteContentStore = useSiteContentStore();
 
-      await siteContentStore.fetchSiteContent();
-      const content = siteContentStore.siteContent
-      this.banner = content.data.home.banner
-      this.culture = content.data.home.cultura;
-      this.howItWorks = content.data.home.comoFunciona;
-      this.aboutUs = content.data.home.sobreNos;
-      this.team = content.data.home.timePreview;
-      this.testimonials = content.data.home.depoimentos;
+      try {
+        await siteContentStore.fetchSiteContent();
+        const content = siteContentStore.siteContent
+        this.banner = content.data.home.banner
+        this.culture = content.data.home.cultura;
+        this.howItWorks = content.data.home.comoFunciona;
+        this.aboutUs = content.data.home.sobreNos;
+        this.team = content.data.home.timePreview;
+        this.testimonials = content.data.home.depoimentos;
+
+        this.loading = false
+
+      } catch (error) {
+        console.log(error)
+      } finally {
+        this.loading = false
+
+      }
+
+
     },
   },
 };
