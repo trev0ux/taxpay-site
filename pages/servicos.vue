@@ -1,20 +1,17 @@
 <template>
     <section class="services-page">
         <div class="services-page__business ">
-            <h1>MUDAR A REALIDADE E A <br> CONTABILIDADE DAS EMPRESAS.</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et
-                dolore magna aliqua.<br> Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                aliquip.</p>
+            <h1>{{ title }}</h1>
+            <p>{{ description }}</p>
 
             <div class="services-page__cards">
-                <div class="services-page__card">
+                <div class="services-page__card" v-for="(item, index) in services" :key="index">
                     <div class="services-page__background">
                         <NuxtImg src="calculator-icon.png"></NuxtImg>
                     </div>
                     <div class="services-page__information">
-                        <h4>LOREM IPSUM</h4>
-                        <P>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut
-                        </P>
+                        <h4>{{ item.titulo }}</h4>
+                        <P>{{ item.descricao }}</p>
                     </div>
                 </div>
                 <div class="services-page__card">
@@ -69,7 +66,7 @@
                     </div>
                 </div>
             </div>
-           
+
         </div>
 
         <AboutUs is-purple></AboutUs>
@@ -77,35 +74,39 @@
 </template>
 
 <script>
-    import { HOMEPAGE_QUERY } from "~/graphql/queries";
-    import { useNuxtApp } from "#app";
-    import AboutUs from "@/components/sections/about-us";
-    export default{
-        components: {
-            AboutUs
-        },
-
-        methods: {
-    async fetchData() {
-      const { $axios } = useNuxtApp();
-      try {
-        const response = await $axios.post("", { query: HOMEPAGE_QUERY });
-        const { data } = response.data;
-        console.log(data.page)
-        this.banner = data.page.banner
-        this.culture = data.page.cultura;
-        this.howItWorks = data.page.comoFunciona;
-        this.aboutUs = data.page.sobreNos;
-        this.team = data.page.timePreview;
-        this.testimonials = data.page.depoimentos
-
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
+import { useSiteContentStore } from "@/stores/index";
+import AboutUs from "@/components/sections/about-us";
+export default {
+    data() {
+        return {
+            title: "",
+            description: "",
+            services: [],
+            aboutUs: []
+        }
     },
-  },
-    }
-    
+    components: {
+        AboutUs
+    },
+    async mounted() {
+        this.fetchData();
+    },
+    methods: {
+        async fetchData() {
+            const siteContentStore = useSiteContentStore();
+
+            await siteContentStore.fetchSiteContent();
+            const content = siteContentStore.siteContent;
+            console.log(content)
+
+            this.title = content.data.servicos.services.titulo;
+            this.description = content.data.servicos.services.descricao;
+            this.services = content.data.servicos.services.servicos;
+            this.aboutUs = content.data.servicos.quemSomos;
+        },
+    },
+}
+
 </script>
 
 <style lang="sass">

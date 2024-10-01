@@ -8,10 +8,7 @@ export default defineNuxtConfig({
   build: {
     transpile: ['bootstrap']
   },
-  modules: [
-    '@nuxt/icon',
-    '@nuxt/image',
-  ],
+  modules: ['@nuxt/icon', '@nuxt/image', '@pinia/nuxt'],
   publicRuntimeConfig: {
     axios: {
       baseURL: 'https://super.taxxpay.com.br/graphql'

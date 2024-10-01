@@ -57,7 +57,7 @@
         </div>
       </swiper-slide>
     </swiper>
-    <div :style="{ backgroundColor: `${currentBanner}` }">
+    <div class="hero-banner__background-color" :style="{ backgroundColor: `${currentBanner}` }"></div>
 
     <div class="custom-pagination hero-banner__bottom-pagination">
       <ul>
@@ -71,7 +71,6 @@
         </li>
       </ul>
     </div>
-  </div>
 
     <div class="custom-number-pagination hero-banner__number-pagination">
       <ul>
@@ -159,7 +158,7 @@ export default {
       onSlideChange,
       activeIndex,
       goToSlide,
-      modules: [Navigation, Pagination, Scrollbar, A11y],
+      modules: [Navigation, Pagination, Scrollbar, A11y, Autoplay],
     };
   },
   components: {

@@ -24,12 +24,14 @@
     padding-top: 32px;
     padding-bottom: 32px;
     width: 100%;
+    right: 0;
     left: 0;
     z-index: 2;
+    position: fixed;
+
 
 
     @include media-breakpoint-down(lg) {
-        position: fixed !important;
         align-items: flex-end;
         padding: 34px 15px;
 

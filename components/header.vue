@@ -1,6 +1,6 @@
 <template>
-  <header class="container position-relative">
-    <div :class="'nav-menu ' + headerClass">
+  <header class="position-relative">
+    <div :class="'nav-menu container ' + headerClass">
       <NuxtLink to="/">
         <NuxtImg src="/logo.svg" alt="TaxPay Logo"></NuxtImg>
       </NuxtLink>
