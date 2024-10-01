@@ -3,43 +3,33 @@
     <aside class="hero-banner__social-icons">
       <ul>
         <li>
-          <NuxtLink><Icon name="InstagramIcon"></Icon></NuxtLink>
+          <NuxtLink>
+            <Icon name="InstagramIcon"></Icon>
+          </NuxtLink>
         </li>
         <li>
-          <NuxtLink><Icon name="FacebookIcon"></Icon></NuxtLink>
+          <NuxtLink>
+            <Icon name="FacebookIcon"></Icon>
+          </NuxtLink>
         </li>
         <li>
-          <NuxtLink><Icon name="LinkedinIcon"></Icon></NuxtLink>
+          <NuxtLink>
+            <Icon name="LinkedinIcon"></Icon>
+          </NuxtLink>
         </li>
         <li>
-          <NuxtLink><Icon name="YoutubeIcon"></Icon></NuxtLink>
+          <NuxtLink>
+            <Icon name="YoutubeIcon"></Icon>
+          </NuxtLink>
         </li>
       </ul>
     </aside>
-    <div
-      :style="{ backgroundColor: `${currentBanner}` }"
-      class="hero-banner__background-color"
-    ></div>
-    <swiper
-      loop
-      :modules="modules"
-      :navigation="true"
-      :slides-per-view="1"
-      :space-between="0"
-      :autoplay="{ delay: 3000, disableOnInteraction: false }"
-      @slideChange="onSlideChange"
-      @swiper="onSwiper"
-      :pagination="false"
-      :draggable="true"
-    >
-      <swiper-slide
-        v-for="(item, index) in banners"
-        :key="index"
-        class="hero-banner__swiper"
-      >
-        <figure
-          :style="{ backgroundImage: `url(${item.banner.node.mediaItemUrl})` }"
-        ></figure>
+    <div :style="{ backgroundColor: `${currentBanner}` }" class="hero-banner__background-color"></div>
+    <swiper loop :modules="modules" :navigation="true" :slides-per-view="1" :space-between="0"
+      :autoplay="{ delay: 3000, disableOnInteraction: false }" @slideChange="onSlideChange" @swiper="onSwiper"
+      :pagination="false" :draggable="true">
+      <swiper-slide v-for="(item, index) in banners" :key="index" class="hero-banner__swiper">
+        <figure :style="{ backgroundImage: `url(${item.banner.node.mediaItemUrl})` }"></figure>
         <div class="container hero-banner__container">
           <div class="hero-banner__content">
             <div>
@@ -49,8 +39,9 @@
             <button class="btn btn-primary">
               Entre em contato
               <span>
-                <NuxtImg src="/chevron.png" alt="Seta para direita"></NuxtImg>
+                <ChevronIcon color="#191919" />
               </span>
+
             </button>
           </div>
         </div>
@@ -60,12 +51,8 @@
 
     <div class="custom-pagination hero-banner__bottom-pagination">
       <ul>
-        <li
-          v-for="(slide, index) in banners"
-          :key="index"
-          :class="{ active: activeIndex === index }"
-          @click="goToSlide(index)"
-        >
+        <li v-for="(slide, index) in banners" :key="index" :class="{ active: activeIndex === index }"
+          @click="goToSlide(index)">
           <span>{{ index + 1 }}.</span> {{ slide.banner.node.title }}
         </li>
       </ul>
@@ -73,12 +60,8 @@
 
     <div class="custom-number-pagination hero-banner__number-pagination">
       <ul>
-        <li
-          v-for="(slide, index) in banners"
-          :key="index"
-          :class="{ active: activeIndex === index }"
-          @click="goToSlide(index)"
-        >
+        <li v-for="(slide, index) in banners" :key="index" :class="{ active: activeIndex === index }"
+          @click="goToSlide(index)">
           0{{ index + 1 }}
         </li>
       </ul>
@@ -95,7 +78,8 @@ import {
   Scrollbar,
 } from "swiper/modules";
 import { watch, computed } from "vue";
-import { Icon } from "#components";
+import { Icon, NuxtImg } from "#components";
+import ChevronIcon from "../global/chevron-icon.vue";
 
 import { Swiper, SwiperSlide } from "swiper/vue";
 

@@ -13,8 +13,9 @@
           <button class="btn btn-primary">
             inscrever
             <span>
-              <NuxtImg src="/chevron.png" alt="Seta para direita"></NuxtImg>
+              <ChevronIcon color="#191919" />
             </span>
+
           </button>
         </div>
       </div>
@@ -48,8 +49,9 @@
       <button class="btn btn-primary">
         ENTRAR EM CONTATO
         <span>
-          <NuxtImg src="/chevron.png" alt="Seta para direita"></NuxtImg>
-        </span>
+              <ChevronIcon color="#191919" />
+            </span>
+
       </button>
     </div>
     </div>
@@ -83,7 +85,7 @@
 </template>
 
 <script>
-import { Icon } from "#components";
+import ChevronIcon from "./global/chevron-icon.vue";
 export default {};
 </script>
 

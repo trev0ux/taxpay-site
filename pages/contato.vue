@@ -56,8 +56,8 @@
             <button class="btn btn-primary" type="submit">
               ENVIAR MENSAGEM
               <span>
-                <NuxtImg src="/chevron.png" alt="Seta para direita" loading="lazy" width="16" height="16" />
-              </span>
+              <ChevronIcon color="#191919" />
+            </span>
             </button>
           </form>
         </div>
@@ -68,6 +68,7 @@
 
 <script>
 import emailjs from 'emailjs-com';
+import ChevronIcon from "../components/global/chevron-icon.vue";
 
 emailjs.init('2NsySIujxYNNAp7W_'); // Use sua chave pública aqui
 
