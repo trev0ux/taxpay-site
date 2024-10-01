@@ -21,14 +21,14 @@
           >
             <div class="testimonials__item">
               <Icon name="QuotesIcon"></Icon>
-              <h5>
+              <h3>
                 {{ item.citacao }}
-              </h5>
+              </h3>
               <p>{{ item.comentario }}</p>
               <div class="testimonials__author">
                 <NuxtImg :src="item.imagem.node.mediaItemUrl" :alt="item.nome"></NuxtImg>
                 <div>
-                  <h6>{{ item.nome}}</h6>
+                  <h4>{{ item.nome }}</h4>
                   <p>{{ item.cargo }}</p>
                 </div>
               </div>
@@ -36,8 +36,16 @@
           </swiper-slide>
         </swiper>
         <div class="swiper-navigation testimonials__navigation">
-          <button ref="prevEl" class="btn p-0 swiper-button-prev"></button>
-          <button ref="nextEl" class="btn p-0 swiper-button-next"></button>
+          <button 
+            ref="prevEl" 
+            class="btn p-0 swiper-button-prev" 
+            aria-label="Slide anterior"
+          ></button>
+          <button 
+            ref="nextEl" 
+            class="btn p-0 swiper-button-next" 
+            aria-label="Próximo slide"
+          ></button>
         </div>
       </div>
     </div>
@@ -54,7 +62,7 @@ export default {
     return {
       items: [
         {
-          image: "/image-1.png",
+          image: "/image-1.webp",
           quotes: "Testeee",
           comment: "testee",
           role: "CEO",
@@ -62,7 +70,7 @@ export default {
           author: "Jerundio",
         },
         {
-          image: "/image-1.png",
+          image: "/image-1.webp",
           quotes: "Testeee",
           comment: "testee",
           role: "CEO",
@@ -70,7 +78,7 @@ export default {
           author: "Jerundio",
         },
         {
-          image: "/image-1.png",
+          image: "/image-1.webp",
           quotes: "Testeee",
           comment: "testee",
           role: "CEO",
@@ -78,7 +86,7 @@ export default {
           author: "Jerundio",
         },
         {
-          image: "/image-1.png",
+          image: "/image-1.webp",
           quotes: "Testeee",
           comment: "testee",
           role: "CEO",

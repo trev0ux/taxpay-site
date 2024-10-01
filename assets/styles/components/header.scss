@@ -49,7 +49,9 @@
         width: 135px;
         height: auto;
         object-fit: contain;
-
+        max-width: 100%; 
+        height: auto;    
+        
         @include media-breakpoint-down(lg) {
             height: 36px;
             width: auto;

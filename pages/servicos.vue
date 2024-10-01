@@ -7,62 +7,11 @@
             <div class="services-page__cards">
                 <div class="services-page__card" v-for="(item, index) in services" :key="index">
                     <div class="services-page__background">
-                        <NuxtImg src="calculator-icon.png"></NuxtImg>
+                        <NuxtImg src="calculator-icon.png" alt="ícone calculator"></NuxtImg>
                     </div>
                     <div class="services-page__information">
                         <h4>{{ item.titulo }}</h4>
                         <P>{{ item.descricao }}</p>
-                    </div>
-                </div>
-                <div class="services-page__card">
-                    <div class="services-page__background">
-                        <NuxtImg src="calculator-icon.png"></NuxtImg>
-                    </div>
-                    <div class="services-page__information">
-                        <h4>LOREM IPSUM</h4>
-                        <P>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut
-                        </P>
-                    </div>
-                </div>
-                <div class="services-page__card">
-                    <div class="services-page__background">
-                        <NuxtImg src="calculator-icon.png"></NuxtImg>
-                    </div>
-                    <div class="services-page__information">
-                        <h4>LOREM IPSUM</h4>
-                        <P>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut
-                        </P>
-                    </div>
-                </div>
-
-                <div class="services-page__card">
-                    <div class="services-page__background">
-                        <NuxtImg src="calculator-icon.png"></NuxtImg>
-                    </div>
-                    <div class="services-page__information">
-                        <h4>LOREM IPSUM</h4>
-                        <P>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut
-                        </P>
-                    </div>
-                </div>
-                <div class="services-page__card">
-                    <div class="services-page__background">
-                        <NuxtImg src="calculator-icon.png"></NuxtImg>
-                    </div>
-                    <div class="services-page__information">
-                        <h4>LOREM IPSUM</h4>
-                        <P>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut
-                        </P>
-                    </div>
-                </div>
-                <div class="services-page__card">
-                    <div class="services-page__background">
-                        <NuxtImg src="calculator-icon.png"></NuxtImg>
-                    </div>
-                    <div class="services-page__information">
-                        <h4>LOREM IPSUM</h4>
-                        <P>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut
-                        </P>
                     </div>
                 </div>
             </div>

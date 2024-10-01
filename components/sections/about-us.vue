@@ -6,7 +6,7 @@
     <div class="container">
       <div class="about-us__container" v-if="content">
         <div class="about-us__image d-none d-lg-block">
-          <NuxtImg v-if="content.imagem" :src="content.imagem.node.mediaItemUrl" :alt="content.imagem.node.altText"></NuxtImg>
+          <NuxtImg alt="imagem do bloco about-us" v-if="content.imagem" :src="content.imagem.node.mediaItemUrl" :alt="content.imagem.node.altText"></NuxtImg>
         </div>
         <article class="about-us__text">
           <h2>{{ content.titulo }}</h2>
