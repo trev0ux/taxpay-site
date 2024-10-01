@@ -1,35 +1,22 @@
 <template>
   <div>
-
-    <head>
-      <title>Equipe - TaxPay</title>
-      <html lang="pt-BR">
-
-      </html>
-      <meta name="description" content="Conheça a nossa equipe.">
-    </head>
     <section class="team-page">
       <div class="container">
-
-
-        <h2>Equipe</h2>
+        <h2>{{ title }}</h2>
         <div class="team-page__members ">
-          <div class="team-page__cards" v-for="(item, index) in teams" :key="item.name">
-            <team-member :name="item.name" :role="item.role" :size="index === 0 || index === 1 ? 'lg' : 'sm'"
-              :showLinkedInIcon="index < 2">
+          <div class="team-page__cards" v-for="(item, index) in teams" :key="item.nome">
+            <team-member :image="item.imagem.node.mediaItemUrl" :name="item.nome" :role="item.cargo" :size="index === 0 || index === 1 ? 'lg' : 'sm'"
+              :showLinkedInIcon="item.linkedin != null">
             </team-member>
           </div>
         </div>
-
       </div>
-
     </section>
   </div>
 </template>
-
 <script>
-
 import TeamMember from "~/components/team-member.vue";
+import { useSiteContentStore } from "@/stores/index";
 
 
 export default {
@@ -38,49 +25,23 @@ export default {
   },
   data() {
     return {
-      teams: [
-        {
-          name: "Alberto",
-          role: "CEO",
-        },
-        {
-          name: "Carla",
-          role: "CEO",
-        },
-        {
-          name: "Jessica",
-          role: "CEO",
-        },
-        {
-          name: "Alberto",
-          role: "CEO",
-        },
-        {
-          name: "Alberto",
-          role: "CEO",
-        },
-        {
-          name: "Alberto",
-          role: "CEO",
-        },
-        {
-          name: "Alberto",
-          role: "CEO",
-        },
-        {
-          name: "Alberto",
-          role: "CEO",
-        },
-        {
-          name: "Alberto",
-          role: "CEO",
-        },
-        {
-          name: "Alberto",
-          role: "CEO",
-        },
-      ],
+      teams: [],
+      title: ""
     };
+  },
+  async mounted() {
+    this.fetchData();
+  },
+  methods: {
+    async fetchData() {
+      const siteContentStore = useSiteContentStore();
+
+      await siteContentStore.fetchSiteContent();
+      const content = siteContentStore.siteContent
+      console.log(content);
+      this.teams = content.data.time.time.membrosDoTime;
+      this.title = content.data.time.time.titulo;
+    },
   },
 };
 </script>

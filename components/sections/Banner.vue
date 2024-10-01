@@ -39,7 +39,6 @@
       >
         <figure
           :style="{ backgroundImage: `url(${item.banner.node.mediaItemUrl})` }"
-          class="hero-banner__background"
         ></figure>
         <div class="container hero-banner__container">
           <div class="hero-banner__content">

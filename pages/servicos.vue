@@ -15,10 +15,8 @@
                     </div>
                 </div>
             </div>
-
         </div>
-
-        <AboutUs is-purple></AboutUs>
+        <about-us :content="aboutUs" v-if="aboutUs"></about-us>
     </section>
 </template>
 

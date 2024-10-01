@@ -25,7 +25,7 @@
           <NuxtLink class="nav-menu__contact btn btn-primary d-flex d-lg-none">
             Entrar em contato
             <span>
-              <NuxtImg src="/chevron.png" alt="Seta para direita" width="16" height="16" />
+              <Icon name="ChevronIcon"/>
             </span>
           </NuxtLink>
         </div>
@@ -34,7 +34,7 @@
       <NuxtLink class="nav-menu__contact btn btn-primary d-none d-lg-flex">
         Entrar em contato
         <span>
-          <NuxtImg src="/chevron.png" alt="Seta para direita" width="16" height="16" />
+          <ChevronIcon color="#191919"/>
         </span>
       </NuxtLink>
 
@@ -54,19 +54,16 @@
 <script setup>
 import { computed, ref } from 'vue';
 import { useRoute } from 'nuxt/app';
+import ChevronIcon from "./global/chevron-icon";
 
-// Estado da rota atual
 const route = useRoute();
 
-// Classe condicional para o cabeçalho com base na rota
 const headerClass = computed(() => {
   return route.path != '/' ? 'nav-menu--not-home' : ' ';
 });
 
-// Estado do menu mobile
 const isMobileMenuOpen = ref(false);
 
-// Alternar estado do menu mobile
 const toggleMobileMenu = () => {
   isMobileMenuOpen.value = !isMobileMenuOpen.value;
 };
