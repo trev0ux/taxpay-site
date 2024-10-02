@@ -106,8 +106,7 @@
             font-size: 100px;
             margin-bottom: 0px;
             margin-bottom: -20px;
-            word-wrap: break-word;
-            white-space: nowrap;
+        
 
             @include media-breakpoint-down(xl) {
                 font-size: 80px;
