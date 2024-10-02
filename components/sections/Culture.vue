@@ -47,7 +47,7 @@ import WordAnimation from "../WordAnimation.vue"
 import ChevronIcon from "../global/ChevronIcon.vue";
 
 defineProps({
-  culture: Array
+  culture: Object
 });
 
 const breakpoints = {

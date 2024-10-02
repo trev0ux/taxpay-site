@@ -50,8 +50,8 @@
     <div class="container">
       <div class="footer__rights">
         <p>TAXPAY</p>
-        <P>Endereço Avenida Lorem Ipsum - Lorem Ipsumm Lorem Ipsum XXX - Lorem
-          Ipsum</P>
+        <p>Endereço Avenida Lorem Ipsum - Lorem Ipsumm Lorem Ipsum XXX - Lorem
+          Ipsum</p>
 
         <ul>
           <li>

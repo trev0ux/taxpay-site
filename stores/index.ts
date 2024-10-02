@@ -17,7 +17,6 @@ export const useSiteContentStore = defineStore("siteContent", () => {
         const response = await $axios.post("", { query: SITECONTENT_QUERY });
         if (response.data) {
           siteContent.value = response.data;
-          console.log("Data fetched:", siteContent.value);
         }
       } catch (error) {
         console.error("Error fetching data:", error);

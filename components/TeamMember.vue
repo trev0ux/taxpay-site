@@ -33,7 +33,7 @@ export default {
     },
     linkedin: {
         type: Boolean,
-        required: true
+        required: false
     },
     size: {
         type: String,

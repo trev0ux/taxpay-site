@@ -5,7 +5,7 @@
         </div>
         <section class="services-page" v-else>
             <div class="services-page__business ">
-                <h1><word-animation :content="title"/></h1>
+                <h1><word-animation :content="title" /></h1>
                 <p>{{ description }}</p>
 
                 <div class="services-page__cards">
@@ -26,55 +26,57 @@
 
 </template>
 
-<script>
+<script setup>
+import { ref, onMounted } from 'vue';
 import { useSiteContentStore } from "@/stores/index";
-import AboutUs from "@/components/sections/about-us";
-import PreLoader from "@/components/PreLoader";
-import WordAnimation from '~/components/WordAnimation.vue';
+import AboutUs from '@/components/sections/AboutUs.vue';
+import PreLoader from "@/components/PreLoader.vue";
+import WordAnimation from '@/components/WordAnimation.vue';
 
-export default {
-    data() {
-        return {
-            title: "",
-            description: "",
-            services: [],
-            aboutUs: [],
-            loading: true
-        }
-    },
-    components: {
-        AboutUs,
-        PreLoader,
-        WordAnimation
-    },
-    async mounted() {
-        this.fetchData();
-    },
-    methods: {
-        async fetchData() {
-            const siteContentStore = useSiteContentStore();
+const title = ref("");
+const description = ref("");
+const services = ref([]);
+const aboutUs = ref([]);
+const loading = ref(true);
 
-            try {
-                await siteContentStore.fetchSiteContent();
-                const content = siteContentStore.siteContent;
-                console.log(content)
+const { data } = await useFetch('https://super.taxxpay.com.br/wp-json/wp/v2/pages', {
+    query: { slug: 'servicos' }
+});
 
-                this.title = content.data.servicos.services.titulo;
-                this.description = content.data.servicos.services.descricao;
-                this.services = content.data.servicos.services.servicos;
-                this.aboutUs = content.data.servicos.quemSomos;
-                this.loading = false
-            } catch (error) {
-                console.log(error)
-            } finally {
-                this.loading = false
-            }
-
-
-        },
-    },
+if (data.value && data.value[0] && data.value[0].yoast_head_json) {
+    const yoast = data.value[0].yoast_head_json;
+    useServerSeoMeta({
+        title: () => yoast.title || '',
+        description: () => yoast.description || '',
+        ogUrl: () => yoast.og_url || '',
+        ogTitle: () => yoast.og_title || '',
+        ogDescription: () => yoast.og_description || '',
+        ogImage: () => yoast.og_image && yoast.og_image[0] ? yoast.og_image[0].url : '',
+        ogType: () => yoast.og_type || '',
+        ogLocale: () => yoast.og_locale || '',
+    });
 }
 
+const fetchData = async () => {
+    const siteContentStore = useSiteContentStore();
+
+    try {
+        await siteContentStore.fetchSiteContent();
+        const content = siteContentStore.siteContent;
+        title.value = content.data.servicos.services.titulo;
+        description.value = content.data.servicos.services.descricao;
+        services.value = content.data.servicos.services.servicos;
+        aboutUs.value = content.data.servicos.quemSomos;
+    } catch (error) {
+        console.log(error);
+    } finally {
+        loading.value = false;
+    }
+};
+
+onMounted(() => {
+    fetchData();
+});
 </script>
 
 <style lang="sass">

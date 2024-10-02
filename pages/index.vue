@@ -14,68 +14,68 @@
   </div>
 </template>
 
-<script>
-import Banner from "@/components/sections/Banner";
-import Culture from "@/components/sections/Culture";
-import HowItWorks from "@/components/sections/HowItWorks";
-import AboutUs from "@/components/sections/about-us";
-import Team from "@/components/sections/team";
-import Testimonials from "@/components/sections/testimonials";
-import PreLoader from "@/components/PreLoader";
-import { useSiteContentStore } from "@/stores/index";
+<script setup>
+import { ref, onBeforeMount } from 'vue';
+import { useSiteContentStore } from '@/stores/index.ts';
+import { useServerSeoMeta } from '#app';
+import Banner from '@/components/sections/Banner.vue';
+import Culture from '@/components/sections/Culture.vue';
+import HowItWorks from '@/components/sections/HowItWorks.vue';
+import AboutUs from '@/components/sections/AboutUs.vue';
+import Team from '@/components/sections/Team.vue';
+import Testimonials from '@/components/sections/Testimonials.vue';
+import PreLoader from '@/components/PreLoader.vue';
 
-export default {
-  data() {
-    return {
-      banner: [],
-      culture: [],
-      services: [],
-      aboutUs: [],
-      team: [],
-      testimonials: [],
-      loading: true
-    }
-  },
-  components: {
-    Banner,
-    Culture,
-    HowItWorks,
-    AboutUs,
-    Team,
-    Testimonials,
-    PreLoader
-  },
-  async mounted() {
-    this.fetchData();
-  },
-  methods: {
-    async fetchData() {
-      const siteContentStore = useSiteContentStore();
+const banner = ref([]);
+const culture = ref([]);
+const howItWorks = ref([]);
+const aboutUs = ref([]);
+const team = ref([]);
+const testimonials = ref([]);
+const loading = ref(true);
 
-      try {
-        await siteContentStore.fetchSiteContent();
-        const content = siteContentStore.siteContent
-        this.banner = content.data.home.banner
-        this.culture = content.data.home.cultura;
-        this.howItWorks = content.data.home.comoFunciona;
-        this.aboutUs = content.data.home.sobreNos;
-        this.team = content.data.home.timePreview;
-        this.testimonials = content.data.home.depoimentos;
+const { data } = await useFetch('https://super.taxxpay.com.br/wp-json/wp/v2/pages', {
+  query: { slug: 'home' }
+});
 
-        this.loading = false
-
-      } catch (error) {
-        console.log(error)
-      } finally {
-        this.loading = false
-
-      }
+if (data.value && data.value[0] && data.value[0].yoast_head_json) {
+  const yoast = data.value[0].yoast_head_json;
+  useServerSeoMeta({
+    title: () => yoast.title || '',
+    description: () => yoast.description || '',
+    ogUrl: () => yoast.og_url || '',
+    ogTitle: () => yoast.og_title || '',
+    ogDescription: () => yoast.og_description || '',
+    ogImage: () => yoast.og_image && yoast.og_image[0] ? yoast.og_image[0].url : '',
+    ogType: () => yoast.og_type || '',
+    ogLocale: () => yoast.og_locale || '',
+  });
+}
 
 
-    },
-  },
-};
+async function fetchData() {
+  const siteContentStore = useSiteContentStore();
+
+  try {
+    await siteContentStore.fetchSiteContent();
+    const content = siteContentStore.siteContent;
+    banner.value = content.data.home.banner;
+    culture.value = content.data.home.cultura;
+    howItWorks.value = content.data.home.comoFunciona;
+    aboutUs.value = content.data.home.sobreNos;
+    team.value = content.data.home.timePreview;
+    testimonials.value = content.data.home.depoimentos;
+    loading.value = false;
+  } catch (error) {
+    console.error(error);
+  } finally {
+    loading.value = false;
+  }
+}
+
+onMounted(fetchData);
 </script>
+
 
 <style lang="sass">
 @import "@/assets/styles/pages/home"

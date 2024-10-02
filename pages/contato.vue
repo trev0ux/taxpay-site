@@ -70,7 +70,7 @@
 import emailjs from 'emailjs-com';
 import ChevronIcon from "../components/global/ChevronIcon.vue";
 
-emailjs.init('2NsySIujxYNNAp7W_'); // Use sua chave pública aqui
+emailjs.init('2NsySIujxYNNAp7W_');
 
 export default {
   data() {
@@ -96,8 +96,7 @@ export default {
       try {
         const response = await fetch('https://brasilapi.com.br/api/ibge/uf/v1');
         const data = await response.json();
-        console.log('Estados retornados:', data);
-        this.estados = data; // Armazena os estados
+        this.estados = data;
       } catch (error) {
         console.error('Erro ao buscar estados:', error);
       }
@@ -107,8 +106,7 @@ export default {
         if (!this.formData.estado) return;
         const response = await fetch(`https://servicodados.ibge.gov.br/api/v1/localidades/estados/${this.formData.estado}/distritos`);
         const data = await response.json();
-        console.log('Cidades retornadas:', data);
-        this.cidades = data; // Atualiza a lista de cidades
+        this.cidades = data;
       } catch (error) {
         console.error('Erro ao buscar cidades:', error);
       }
@@ -125,7 +123,6 @@ export default {
           message: this.formData.mensagem
         });
 
-        console.log('Mensagem enviada:', result);
         this.resetForm();
       } catch (err) {
         console.error('Erro ao enviar mensagem:', err);
