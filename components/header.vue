@@ -8,16 +8,16 @@
       <div :class="'nav-menu__mobile ' + (isMobileMenuOpen ? 'nav-menu__mobile--open' : '') ">
         <ul class="nav-menu__items">
           <li>
-            <NuxtLink to="/servicos" class="nav-menu__item" title="Veja nossos serviços" active-class="nav-menu__item--active">Nossos Serviços</NuxtLink>
+            <NuxtLink to="/servicos" class="nav-menu__item" title="Veja nossos serviços" active-class="nav-menu__item--active" @click="toggleMobileMenu">Nossos Serviços</NuxtLink>
           </li>
           <li>
-            <NuxtLink to="/quemsomos" class="nav-menu__item" title="Saiba mais sobre nós" active-class="nav-menu__item--active">Quem Somos</NuxtLink>
+            <NuxtLink to="/quemsomos" class="nav-menu__item" title="Saiba mais sobre nós" active-class="nav-menu__item--active" @click="toggleMobileMenu">Quem Somos</NuxtLink>
           </li>
           <li>
-            <NuxtLink to="/equipe" class="nav-menu__item" title="Saiba mais sobre nós" active-class="nav-menu__item--active">Equipe</NuxtLink>
+            <NuxtLink to="/equipe" class="nav-menu__item" title="Saiba mais sobre nós" active-class="nav-menu__item--active" @click="toggleMobileMenu">Equipe</NuxtLink>
           </li>
           <li>
-            <NuxtLink to="/contato" class="nav-menu__item" title="Entre em contato conosco" active-class="nav-menu__item--active">Contato</NuxtLink>
+            <NuxtLink to="/contato" class="nav-menu__item" title="Entre em contato conosco" active-class="nav-menu__item--active" @click="toggleMobileMenu">Contato</NuxtLink>
           </li>
         </ul>
 

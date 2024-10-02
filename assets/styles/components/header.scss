@@ -201,72 +201,72 @@
         }
     }
 
-    &__mobile {
-
+    .nav-menu__mobile {
         @include media-breakpoint-down(lg) {
-            top: 20px;
-            display: none;
-            flex-direction: column;
-            background-color: $black;
-            border-radius: 10px;
-            width: calc(100% - 30px);
-            z-index: 2;
-            margin: 0 15px;
+          top: 20px;
+          flex-direction: column;
+          background-color: $black;
+          border-radius: 10px;
+          width: calc(100% - 30px);
+          z-index: 2;
+          margin: 0 15px;
+          left: 0;
+          justify-content: center;
+          padding: 120px 30px;
+          position: absolute;
+          opacity: 0;
+          transform: translateY(-20px); 
+          visibility: hidden;
+          transition: transform 0.3s ease, opacity 0.3s ease, visibility 0s 0.3s; 
+      
+          &--open {
+            display: flex;
+            opacity: 1;
+            transform: translateY(0); 
+            visibility: visible; 
+            transition: transform 0.3s ease, opacity 0.3s ease, visibility 0s;
+          }
+      
+          &::before {
+            content: '';
+            position: fixed;
+            top: 0;
             left: 0;
-            justify-content: center;
-            padding: 120px 30px;
-            position: absolute;
-
-
-            &--open {
-                display: flex;
-            }
-
-            &::before {
-                content: '';
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                background: rgba(0, 0, 0, 0.4);
-                z-index: -1;
-
-            }
-
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: -1;
+            transition: background 0.3s ease; 
+          }
         }
-
+      
         li {
-            overflow: hidden;
-            &:nth-child(1) a {
-                animation-delay: 0.1s;
-            }
-    
-            &:nth-child(2) a {
-                animation-delay: 0.2s;
-            }
-    
-            &:nth-child(3) a {
-                animation-delay: 0.3s;
-            }
-    
-            &:nth-child(4) a {
-                animation-delay: 0.4s;
-            }
-
-            a{
-                opacity: 0; 
-                transform: translateY(100px); 
-                animation: cascadeIn 0.9s ease forwards;
-                display: block; 
-        
-                
-                
-            }
-
+          overflow: hidden;
+      
+          &:nth-child(1) a {
+            animation-delay: 0.1s;
+          }
+      
+          &:nth-child(2) a {
+            animation-delay: 0.2s;
+          }
+      
+          &:nth-child(3) a {
+            animation-delay: 0.3s;
+          }
+      
+          &:nth-child(4) a {
+            animation-delay: 0.4s;
+          }
+      
+          a {
+            opacity: 0;
+            transform: translateY(100px);
+            animation: cascadeIn 0.9s ease forwards;
+            display: block;
+          }
         }
-    }
-}
+      }
 
 @keyframes cascadeIn {
     from {
@@ -278,4 +278,4 @@
         opacity: 1;
         transform: translateY(0);
     }
-}
+}}
