@@ -26,7 +26,7 @@
       :navigation="true"
       :slides-per-view="1"
       :space-between="0"
-      :autoplay="{ delay: 3000, disableOnInteraction: false }"
+      :autoplay="{ delay: 8000, disableOnInteraction: true }"
       @slideChange="onSlideChange"
       @swiper="onSwiper"
       :pagination="false"
@@ -47,7 +47,7 @@
             <button class="btn btn-primary">
               Entre em contato
               <span>
-                <NuxtImg src="/chevron.png" alt="Seta para direita"></NuxtImg>
+                <ChevronIcon/>
               </span>
             </button>
           </div>
@@ -93,8 +93,9 @@ import {
   Scrollbar,
 } from "swiper/modules";
 import { watch, computed } from "vue";
-import { Icon } from "#components";
 import WordAnimation from "../WordAnimation.vue"
+import { Icon } from "#components";
+import ChevronIcon from "../global/ChevronIcon.vue";
 
 import { Swiper, SwiperSlide } from "swiper/vue";
 
@@ -156,7 +157,8 @@ export default {
       onSlideChange,
       activeIndex,
       goToSlide,
-      modules: [Navigation, Pagination, Scrollbar, A11y],
+      ChevronIcon,
+      modules: [Navigation, Autoplay, Pagination, Scrollbar, A11y],
     };
   },
   components: {

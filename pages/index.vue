@@ -17,7 +17,7 @@
 <script>
 import Banner from "@/components/sections/banner";
 import Culture from "@/components/sections/culture";
-import HowItWorks from "@/components/sections/how-it-works";
+import HowItWorks from "@/components/sections/HowItWorks";
 import AboutUs from "@/components/sections/about-us";
 import Team from "@/components/sections/team";
 import Testimonials from "@/components/sections/testimonials";

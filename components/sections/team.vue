@@ -3,15 +3,15 @@
     <h2><WordAnimation :content="team.titulo"/></h2>
     <div class="container">
       <div class="team__members">
-        <team-member v-for="(member, index) in team.membros" :key="index" :name="member.titulo" :role="member.cargo" :image="member.imagem.node.mediaItemUrl"></team-member>
+        <TeamMember v-for="(member, index) in team.membros" :key="index" :name="member.titulo" :role="member.cargo" :image="member.imagem.node.mediaItemUrl"></TeamMember>
       </div>
     </div>
   </section>
 </template>
 
 <script>
-import TeamMember from '../team-member.vue';
 import WordAnimation from "../WordAnimation.vue"
+import TeamMember from '../TeamMember.vue';
 
 export default {
   components: {

@@ -216,19 +216,16 @@
         }
 
 
-        button {
+        a {
             margin-top: 50px;
             background-color: $white;
             color: $black;
 
             display: flex;
             align-items: center;
-
-
-            padding: 8px 20px;
-            border-radius: 50px 50px;
             cursor: pointer;
             outline: none;
+            width: fit-content;
 
             @include media-breakpoint-down(lg) {
                 display: none;

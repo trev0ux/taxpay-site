@@ -29,8 +29,8 @@
 
 <script setup>
 import { defineProps } from "vue";
-import ChevronIcon from "../global/chevron-icon.vue";
 import WordAnimation from "../WordAnimation.vue"
+import ChevronIcon from "../global/ChevronIcon.vue";
 
 defineProps({
   isPurple: {

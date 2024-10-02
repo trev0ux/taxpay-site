@@ -68,7 +68,7 @@
 
 <script>
 import emailjs from 'emailjs-com';
-import ChevronIcon from "../components/global/chevron-icon.vue";
+import ChevronIcon from "../components/global/ChevronIcon.vue";
 
 emailjs.init('2NsySIujxYNNAp7W_'); // Use sua chave pública aqui
 

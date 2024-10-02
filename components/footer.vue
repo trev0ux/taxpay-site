@@ -30,30 +30,21 @@
         </ul>
       </div>
 
-      <div class="footer__services">
-      <h4>Serviços</h4>
-      <ul>
-        <li><a href="#servico1">Lorem Ipsum</a></li>
-        <li><a href="#servico2">Lorem Ipsum</a></li>
-        <li><a href="#servico3">Lorem Ipsum</a></li>
-        <li><a href="#servico4">Lorem Ipsum</a></li>
-      </ul>
-    </div>
-    <div class="footer__contacts">
-      <h4>Contato</h4>
-      <ul>
-        <li>(44) x xxxx-xxxx</li>
-        <li>atendimento@taxpay.com.br</li>
-      </ul>
+      <div class="footer__contacts">
+        <h4>Contato</h4>
+        <ul>
+          <li>(44) x xxxx-xxxx</li>
+          <li>atendimento@taxpay.com.br</li>
+        </ul>
 
-      <button class="btn btn-primary">
-        ENTRAR EM CONTATO
-        <span>
-              <ChevronIcon color="#191919" />
-            </span>
+        <NuxtLink class="btn btn-primary" to="/contato">
+          ENTRAR EM CONTATO
+          <span>
+            <ChevronIcon color="#191919" />
+          </span>
 
-      </button>
-    </div>
+        </NuxtLink>
+      </div>
     </div>
 
     <div class="container">
@@ -85,7 +76,7 @@
 </template>
 
 <script>
-import ChevronIcon from "./global/chevron-icon.vue";
+import ChevronIcon from "./global/ChevronIcon.vue";
 export default {};
 </script>
 
