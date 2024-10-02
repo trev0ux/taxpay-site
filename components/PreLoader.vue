@@ -33,11 +33,14 @@ const isLoading = ref(true)
 
 setTimeout(() => {
     isLoading.value = false;
-    const delay = 3000 // Total animation duration in milliseconds
-}, 3500) // Set this to slightly longer than the logo animation duration
+    const delay = 3000
+}, 3500)
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+@import "bootstrap/scss/_functions";
+@import "bootstrap/scss/_variables";
+@import "bootstrap/scss/mixins/_breakpoints";
 .preloader {
     position: fixed;
     top: 0;
@@ -57,6 +60,15 @@ setTimeout(() => {
     visibility: hidden;
 }
 
+.logo-container {
+    @include media-breakpoint-down(md) {
+        svg {
+            width: 120px;
+            height: 120px;
+        }
+    }
+}
+
 .logo-path {
     fill: transparent;
     stroke: #000000;
@@ -64,6 +76,7 @@ setTimeout(() => {
     stroke-dasharray: 1000;
     stroke-dashoffset: 1000;
     animation: drawPath .2s forwards, fillPath .2s .2s forwards;
+    animation-iteration-count: infinite;
 }
 
 @keyframes drawPath {
@@ -88,31 +101,31 @@ setTimeout(() => {
 }
 
 .path-0 {
-    animation-delay: 0s, 2s;
+    animation-delay: 0s, 1s;
 }
 
 .path-1 {
-    animation-delay: 0.2s, 2.2s;
+    animation-delay: 0.1s, 1.2s;
 }
 
 .path-2 {
-    animation-delay: 0.4s, 2.4s;
+    animation-delay: 0.2s, 1.4s;
 }
 
 .path-3 {
-    animation-delay: 0.6s, 2.6s;
+    animation-delay: 0.3s, 1.6s;
 }
 
 .path-4 {
-    animation-delay: 0.8s, 2.8s;
+    animation-delay: 0.4s, 1.8s;
 }
 
 .path-5 {
-    animation-delay: 1s, 3s;
+    animation-delay: .5s, 2s;
 }
 
 .path-6 {
-    animation-delay: 1.2s, 3.2s;
+    animation-delay: .6s, 2.2s;
 }
 
 </style>

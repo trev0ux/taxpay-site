@@ -41,7 +41,7 @@
         <div class="container hero-banner__container">
           <div class="hero-banner__content">
             <div>
-              <h1>{{ item.banner.node.title }}</h1>
+              <h1><WordAnimation :content="item.banner.node.title"/></h1>
               <div v-html="item.banner.node.description"></div>
             </div>
             <button class="btn btn-primary">
@@ -94,6 +94,7 @@ import {
 } from "swiper/modules";
 import { watch, computed } from "vue";
 import { Icon } from "#components";
+import WordAnimation from "../WordAnimation.vue"
 
 import { Swiper, SwiperSlide } from "swiper/vue";
 
@@ -162,6 +163,7 @@ export default {
     Swiper,
     SwiperSlide,
     Icon,
+    WordAnimation
   },
 };
 </script>

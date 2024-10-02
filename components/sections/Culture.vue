@@ -2,13 +2,13 @@
   <section class="company-culture">
     <div class="container company-culture__container">
       <article class="company-culture__text">
-        <h2>{{ culture.titulo }}</h2>
+        <h2><WordAnimation :content="culture.titulo"/></h2>
         <p>{{ culture.descricao }}</p>
         <button class="btn btn-primary">
           Entre em contato
           <span>
-            <NuxtImg src="/chevron.png" alt="Seta para direita"></NuxtImg>
-          </span>
+                <ChevronIcon color="#191919" />
+              </span>
         </button>
       </article>
       <article class="company-culture__boxes">
@@ -29,8 +29,9 @@
           <button class="btn btn-primary">
             Entre em contato
             <span>
-              <NuxtImg src="/chevron.png" alt="Seta para direita"></NuxtImg>
-            </span>
+                <ChevronIcon color="#191919" />
+              </span>
+
           </button>
         </div>
       </article>
@@ -42,6 +43,8 @@
 import { Swiper, SwiperSlide } from "swiper/vue";
 import "swiper/swiper-bundle.css";
 import { defineProps } from "vue";
+import ChevronIcon from "../global/chevron-icon.vue";
+import WordAnimation from "../WordAnimation.vue"
 
 defineProps({
   culture: Array

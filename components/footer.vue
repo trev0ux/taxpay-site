@@ -4,7 +4,7 @@
       <div>
         <NuxtImg class="footer__logo" src="/logo.svg" alt=""></NuxtImg>
 
-        <h3 class="footer__subscribe">
+        <!-- <h3 class="footer__subscribe">
           INSCREVA-SE EM NOSSA NEWSLETTER E RECEBA NOVIDADES.
         </h3>
         <div class="footer__input-email">
@@ -13,10 +13,11 @@
           <button class="btn btn-primary">
             inscrever
             <span>
-              <NuxtImg src="/chevron.png" alt="Seta para direita"></NuxtImg>
+              <ChevronIcon color="#191919" />
             </span>
+
           </button>
-        </div>
+        </div> -->
       </div>
 
       <div class="footer__maps">
@@ -48,8 +49,9 @@
       <button class="btn btn-primary">
         ENTRAR EM CONTATO
         <span>
-          <NuxtImg src="/chevron.png" alt="Seta para direita"></NuxtImg>
-        </span>
+              <ChevronIcon color="#191919" />
+            </span>
+
       </button>
     </div>
     </div>
@@ -83,7 +85,7 @@
 </template>
 
 <script>
-import { Icon } from "#components";
+import ChevronIcon from "./global/chevron-icon.vue";
 export default {};
 </script>
 

@@ -1,7 +1,7 @@
 <template>
   <section class="services">
     <div class="container">
-      <h2 v-if="howItWorks">{{ howItWorks.titulo }}</h2>
+      <h2 v-if="howItWorks"><WordAnimation :content="howItWorks.titulo"/></h2>
 
       <article class="services__container">
         <div class="services__accordion-item" v-if="howItWorks">
@@ -48,6 +48,7 @@
 <script setup>
 import { Icon } from "#components";
 import { onMounted, onBeforeUnmount, defineProps, ref } from "vue";
+import WordAnimation from "../WordAnimation.vue"
 
 const currentIndex = ref(0);
 const progress = ref(0);

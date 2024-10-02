@@ -1,7 +1,7 @@
 <template>
   <section class="testimonials">
     <div class="container">
-      <h2>{{ testimonials.titulo }}</h2>
+      <h2><WordAnimation :content="testimonials.titulo"/></h2>
       <div class="testimonials__swiper-container">
         <swiper
           :loop="true"
@@ -56,44 +56,12 @@
 import { Swiper, SwiperSlide } from "swiper/vue";
 import { Navigation } from "swiper/modules";
 import { Icon } from "#components";
+import WordAnimation from "../WordAnimation.vue"
 
 export default {
   data() {
     return {
-      items: [
-        {
-          image: "/image-1.webp",
-          quotes: "Testeee",
-          comment: "testee",
-          role: "CEO",
-          alt: "Image 1",
-          author: "Jerundio",
-        },
-        {
-          image: "/image-1.webp",
-          quotes: "Testeee",
-          comment: "testee",
-          role: "CEO",
-          alt: "Image 1",
-          author: "Jerundio",
-        },
-        {
-          image: "/image-1.webp",
-          quotes: "Testeee",
-          comment: "testee",
-          role: "CEO",
-          alt: "Image 1",
-          author: "Jerundio",
-        },
-        {
-          image: "/image-1.webp",
-          quotes: "Testeee",
-          comment: "testee",
-          role: "CEO",
-          alt: "Image 1",
-          author: "Jerundio",
-        },
-      ],
+      items: [],
     };
   },
   props: {
@@ -132,6 +100,7 @@ export default {
     Swiper,
     SwiperSlide,
     Icon,
+    WordAnimation
   },
 };
 </script>

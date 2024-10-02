@@ -7,19 +7,31 @@
 .hero-banner {
     overflow: hidden;
     position: relative;
+
+    &__container {
+
+        @include media-breakpoint-up(md) {
+            min-height: 90vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: flex-start;
+        }
+    }
+
     h1 {
         @include font-size($font-xxxxxx-large);
         margin-bottom: 40px;
         padding-top: 105px;
         color: $black;
         max-width: 600px;
-        line-height: .88;
+        line-height: 0.88;
 
         @include media-breakpoint-down(lg) {
             @include font-size($font-xxxxx-large);
             line-height: 1;
             max-width: 100%;
-            padding-top: 80px;
+            padding-top: 120px;
             margin-bottom: 20px;
         }
     }
@@ -77,14 +89,25 @@
         z-index: -1;
 
         @include media-breakpoint-down(lg) {
-            object-fit: contain;
-            min-height: fit-content;
+            position: absolute;
+            z-index: -1;
+            width: 280px;
+            object-position: center;
+            height: auto;
+        }
+
+        @include media-breakpoint-down(md) {
+            right: initial;
         }
     }
 
     &__swiper {
         display: flex;
         align-items: flex-end;
+
+        @include media-breakpoint-down(lg) {
+            justify-content: center;
+        }
 
         > div {
             padding-bottom: 75px;
@@ -95,7 +118,6 @@
         }
     }
 
-
     .swiper-wrapper {
         display: flex;
         align-items: flex-end;
@@ -103,18 +125,19 @@
     }
 
     &__content {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-end;
 
         @include media-breakpoint-down(lg) {
-            height: 100vh;
             padding-bottom: 0;
-            display: flex;
-            flex-direction: column;
             justify-content: center;
-            align-items: flex-start;
         }
 
         @include media-breakpoint-down(md) {
             justify-content: space-between;
+            gap: 120px;
         }
     }
 
