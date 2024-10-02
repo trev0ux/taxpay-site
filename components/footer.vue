@@ -24,7 +24,7 @@
         <h4>MAPA DO SITE</h4>
         <ul>
           <li><a href="/servicos">Nossos serviços</a></li>
-          <li><a href="/quem-somos">Quem somos</a></li>
+          <li><a href="/QuemSomos">Quem somos</a></li>
           <li><a href="/equipe">Equipe</a></li>
           <li><a href="/contato">Contato</a></li>
         </ul>
@@ -75,9 +75,8 @@
   </footer>
 </template>
 
-<script>
+<script setup>
 import ChevronIcon from "./global/ChevronIcon.vue";
-export default {};
 </script>
 
 <style lang="sass">

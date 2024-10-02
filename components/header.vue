@@ -11,7 +11,7 @@
             <NuxtLink to="/servicos" class="nav-menu__item" title="Veja nossos serviços" active-class="nav-menu__item--active" @click="toggleMobileMenu">Nossos Serviços</NuxtLink>
           </li>
           <li>
-            <NuxtLink to="/quemsomos" class="nav-menu__item" title="Saiba mais sobre nós" active-class="nav-menu__item--active" @click="toggleMobileMenu">Quem Somos</NuxtLink>
+            <NuxtLink to="/QuemSomos" class="nav-menu__item" title="Saiba mais sobre nós" active-class="nav-menu__item--active" @click="toggleMobileMenu">Quem Somos</NuxtLink>
           </li>
           <li>
             <NuxtLink to="/equipe" class="nav-menu__item" title="Saiba mais sobre nós" active-class="nav-menu__item--active" @click="toggleMobileMenu">Equipe</NuxtLink>

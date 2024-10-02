@@ -47,7 +47,7 @@
             <button class="btn btn-primary">
               Entre em contato
               <span>
-                <ChevronIcon/>
+                <ChevronIcon color="#191919"/>
               </span>
             </button>
           </div>

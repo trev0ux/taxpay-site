@@ -3,8 +3,9 @@
         <span class="real-word">{{ content }}</span>
         <div class="word-animation">
             <transition-group name="word-animation" tag="div">
-                <span v-for="(word, index) in visibleWords" :key="`${word}-${index}`"
-                    :style="{ transitionDelay: `${index * 100}ms` }" :class="[word == ' ' ? 'word mx-1' : 'word']">
+                <span v-for="(word, index) in visibleWords" :key="`${word}-${index}`" :style="{
+                    transition: `all 0.5s ease ${index * 5000}ms`
+                }" :class="[word == ' ' ? 'word mx-1' : 'word']">
                     <span class="value">
                         <div>
                             {{ word }}
@@ -67,7 +68,7 @@ export default {
                 } else {
                     clearInterval(intervalId)
                 }
-            }, 300)
+            }, 100)
         },
         createObserver() {
             const options = {

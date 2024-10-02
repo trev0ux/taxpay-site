@@ -80,6 +80,7 @@
         }
         @include media-breakpoint-down(md) {
             width: 100%;
+            flex-direction: column;
         }
 
         &:hover {
@@ -116,6 +117,11 @@
         p {
             text-align: left;
             margin-bottom: 0;
+
+            @include media-breakpoint-down(md) {
+                text-align: center;
+            }
+    
         }
     }
 }

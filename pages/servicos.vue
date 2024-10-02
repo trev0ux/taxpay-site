@@ -11,7 +11,7 @@
                 <div class="services-page__cards">
                     <div class="services-page__card" v-for="(item, index) in services" :key="index">
                         <div class="services-page__background">
-                            <NuxtImg src="calculator-icon.png" alt="ícone calculator"></NuxtImg>
+                            <NuxtImg src="/calculator-icon.png" alt="ícone calculator"></NuxtImg>
                         </div>
                         <div class="services-page__information">
                             <h4>{{ item.titulo }}</h4>

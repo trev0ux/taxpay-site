@@ -260,6 +260,7 @@
         p {
             font-family: $font-family--secondary;
             font-weight: $font-weight--medium;
+            color: $steel;
 
             @include media-breakpoint-down(lg) {
                 display: none;
@@ -272,6 +273,12 @@
             margin-bottom: 0px;
             padding: 0;
             gap: 10px;
+
+            li {
+                svg {
+                    color: $steel;
+                }
+            }
         }
     }
 
