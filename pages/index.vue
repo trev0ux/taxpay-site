@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import Banner from "../../components/sections/Banner";
+import Banner from "@/components/sections/Banner";
 import Culture from "@/components/sections/Culture";
 import HowItWorks from "@/components/sections/HowItWorks";
 import AboutUs from "@/components/sections/about-us";
