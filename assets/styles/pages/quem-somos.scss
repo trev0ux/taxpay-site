@@ -92,7 +92,6 @@
         display: flex;
         justify-content: space-between;
         flex-wrap: wrap;
-        row-gap: 100px;
 
         @include media-breakpoint-down(lg) {
             row-gap: 60px;
@@ -101,15 +100,20 @@
     }
 
     &__value {
-        width: 40%;
+        width: 45%;
 
         h3 {
             font-size: 100px;
             margin-bottom: 0px;
             margin-bottom: -20px;
+        
 
             @include media-breakpoint-down(xl) {
                 font-size: 80px;
+            }
+
+            @include media-breakpoint-down(sm) {
+                font-size: 70px;
             }
         }
 

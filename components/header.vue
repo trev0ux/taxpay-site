@@ -22,7 +22,7 @@
         </ul>
 
         <div>
-          <NuxtLink class="nav-menu__contact btn btn-primary d-flex d-lg-none" to="/contato">
+          <NuxtLink class="nav-menu__contact btn btn-primary d-flex d-lg-none" to="/contato" @click="toggleMobileMenu">
             Entrar em contato
             <span>
               <Icon name="ChevronIcon"/>
