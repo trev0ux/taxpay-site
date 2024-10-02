@@ -43,7 +43,7 @@
 import { Swiper, SwiperSlide } from "swiper/vue";
 import "swiper/swiper-bundle.css";
 import { defineProps } from "vue";
-import ChevronIcon from "../global/chevron-icon.vue";
+import ChevronIcon from "../global/ChevronIcon.vue";
 
 defineProps({
   culture: Array

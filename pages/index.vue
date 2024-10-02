@@ -10,7 +10,7 @@
   <div>
     <banner :banner="banner"></banner>
     <culture :culture="culture" v-if="culture"></culture>
-    <how-it-works :how-it-works="howItWorks" v-if="howItWorks"></how-it-works>
+    <HowItWorks :HowItWorks="howItWorks" v-if="howItWorks"></HowItWorks>
     <about-us :content="aboutUs" v-if="aboutUs"></about-us>
     <team :team="team" v-if="team"></team>
     <testimonials :testimonials="testimonials" v-if="testimonials"></testimonials>
@@ -21,7 +21,7 @@
 <script>
 import Banner from "@/components/sections/banner";
 import Culture from "@/components/sections/culture";
-import HowItWorks from "@/components/sections/how-it-works";
+import HowItWorks from "@/components/sections/HowItWorks";
 import AboutUs from "@/components/sections/about-us";
 import Team from "@/components/sections/team";
 import Testimonials from "@/components/sections/testimonials";

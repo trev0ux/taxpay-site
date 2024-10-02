@@ -11,7 +11,7 @@
             <NuxtLink to="/servicos" class="nav-menu__item" title="Veja nossos serviços" active-class="nav-menu__item--active">Nossos Serviços</NuxtLink>
           </li>
           <li>
-            <NuxtLink to="/quem-somos" class="nav-menu__item" title="Saiba mais sobre nós" active-class="nav-menu__item--active">Quem Somos</NuxtLink>
+            <NuxtLink to="/quemsomos" class="nav-menu__item" title="Saiba mais sobre nós" active-class="nav-menu__item--active">Quem Somos</NuxtLink>
           </li>
           <li>
             <NuxtLink to="/equipe" class="nav-menu__item" title="Saiba mais sobre nós" active-class="nav-menu__item--active">Equipe</NuxtLink>
@@ -54,7 +54,7 @@
 <script setup>
 import { computed, ref } from 'vue';
 import { useRoute } from 'nuxt/app';
-import ChevronIcon from "./global/chevron-icon";
+import ChevronIcon from "./global/ChevronIcon";
 
 const route = useRoute();
 

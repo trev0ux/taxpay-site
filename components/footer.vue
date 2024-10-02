@@ -85,7 +85,7 @@
 </template>
 
 <script>
-import ChevronIcon from "./global/chevron-icon.vue";
+import ChevronIcon from "./global/ChevronIcon.vue";
 export default {};
 </script>
 

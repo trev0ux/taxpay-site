@@ -5,9 +5,9 @@
         <h2>{{ title }}</h2>
         <div class="team-page__members ">
           <div class="team-page__cards" v-for="(item, index) in teams" :key="item.nome">
-            <team-member :image="item.imagem.node.mediaItemUrl" :name="item.nome" :role="item.cargo" :size="index === 0 || index === 1 ? 'lg' : 'sm'"
+            <TeamMember :image="item.imagem.node.mediaItemUrl" :name="item.nome" :role="item.cargo" :size="index === 0 || index === 1 ? 'lg' : 'sm'"
               :showLinkedInIcon="item.linkedin != null">
-            </team-member>
+            </TeamMember>
           </div>
         </div>
       </div>
@@ -15,7 +15,7 @@
   </div>
 </template>
 <script>
-import TeamMember from "~/components/team-member.vue";
+import TeamMember from "~/components/TeamMember.vue";
 import { useSiteContentStore } from "@/stores/index";
 
 

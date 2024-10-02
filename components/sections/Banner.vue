@@ -79,7 +79,7 @@ import {
 } from "swiper/modules";
 import { watch, computed } from "vue";
 import { Icon, NuxtImg } from "#components";
-import ChevronIcon from "../global/chevron-icon.vue";
+import ChevronIcon from "../global/ChevronIcon.vue";
 
 import { Swiper, SwiperSlide } from "swiper/vue";
 
