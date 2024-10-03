@@ -80,16 +80,13 @@ function startProgress() {
       progress.value = 0;
       currentIndex.value = (currentIndex.value + 1) % items.value.length;
     }
-  }, 30);
+  }, 150);
 }
 
 function toggleService(index) {
   currentIndex.value = index;
-  progress.value = 0;
-  
-  if(!isMobile.value) {
-    startProgress();
-  }
+  progress.value = 100;
+  clearInterval(interval.value);
 }
 
 onMounted(() => {

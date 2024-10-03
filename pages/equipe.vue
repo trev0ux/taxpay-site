@@ -4,16 +4,18 @@
       <PreLoader />
     </div>
     <section class="team-page" v-else>
-      <div class="container">
-        <h2><word-animation :content="title" /></h2>
-        <div class="team-page__members ">
-          <div class="team-page__cards" v-for="(item, index) in teams" :key="item.nome">
-            <TeamMember :image="item.imagem.node.mediaItemUrl" :name="item.nome" :role="item.cargo"
-              :size="index === 0 || index === 1 ? 'lg' : 'sm'" :showLinkedInIcon="item.linkedin != null">
-            </TeamMember>
+      <article>
+        <div class="container">
+          <h2><word-animation :content="title" /></h2>
+          <div class="team-page__members ">
+            <div class="team-page__cards" v-for="(item, index) in teams" :key="item.nome">
+              <TeamMember :image="item.imagem.node.mediaItemUrl" :name="item.nome" :role="item.cargo"
+                :size="index === 0 || index === 1 ? 'lg' : 'sm'" :showLinkedInIcon="item.linkedin != null">
+              </TeamMember>
+            </div>
           </div>
         </div>
-      </div>
+      </article>
     </section>
   </div>
 </template>

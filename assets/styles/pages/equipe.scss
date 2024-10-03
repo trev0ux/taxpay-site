@@ -43,14 +43,19 @@ p {
 
 
 .team-page {
-    border-radius: 60px;
-    padding: 30px 0px 60px;
-    background-color: $white-edgar;
     margin: 0px  2.5% 60px  ;
     width: 95%;
+    padding-top: 120px;
 
-    @include media-breakpoint-down(lg){
-        border-radius: 30px;
+
+    > article {
+        background-color: $white-edgar;
+        padding: 30px 0px 60px;
+        border-radius: 60px;
+
+        @include media-breakpoint-down(lg){
+            border-radius: 30px;
+        }
     }
 
 

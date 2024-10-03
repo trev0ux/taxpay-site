@@ -10,7 +10,7 @@
 
     &__container {
 
-        @include media-breakpoint-up(md) {
+        @include media-breakpoint-up(xl) {
             min-height: 90vh;
             display: flex;
             flex-direction: column;
@@ -27,7 +27,7 @@
         max-width: 600px;
         line-height: 0.88;
 
-        @include media-breakpoint-down(lg) {
+        @include media-breakpoint-down(xl) {
             @include font-size($font-xxxxx-large);
             line-height: 1;
             max-width: 100%;
@@ -52,7 +52,7 @@
         z-index: 2;
         bottom: 80px;
 
-        @include media-breakpoint-down(lg) {
+        @include media-breakpoint-down(xl) {
             display: none;
         }
 
@@ -83,17 +83,15 @@
 
     &__background {
         position: absolute;
-        bottom: 0;
+        bottom: -5px;
         right: 0;
-        height: 720px;
+        height: 600px;
         z-index: -1;
 
-        @include media-breakpoint-down(lg) {
-            position: absolute;
-            z-index: -1;
+        @include media-breakpoint-down(xl) {
             width: 280px;
+            height: auto;            
             object-position: center;
-            height: auto;
         }
 
         @include media-breakpoint-down(md) {
@@ -110,10 +108,12 @@
         }
 
         > div {
-            padding-bottom: 75px;
+            padding-bottom: 45px;
 
             @include media-breakpoint-down(lg) {
                 height: 100%;
+                display: flex;
+                justify-content: center;
             }
         }
     }
@@ -152,7 +152,7 @@
         right: 40px;
         z-index: 2;
 
-        @include media-breakpoint-down(md) {
+        @include media-breakpoint-down(xl) {
             display: none;
         }
 
@@ -226,6 +226,10 @@
                 font-family: $font-family--secondary;
                 @include font-size($font-regular);
                 cursor: pointer;
+
+                @include media-breakpoint-down(xl) {
+                    @include font-size($font-small);
+                }
 
                 span {
                     display: block;

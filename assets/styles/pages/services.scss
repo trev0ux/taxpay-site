@@ -10,6 +10,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding-top: 120px;
 
     &__business {
         border: 1px solid $white;
@@ -77,10 +78,10 @@
         transition: all 0.2s linear;
         @include media-breakpoint-down(xl) {
             width: 48%;
+            flex-direction: column;
         }
         @include media-breakpoint-down(md) {
             width: 100%;
-            flex-direction: column;
         }
 
         &:hover {
@@ -118,7 +119,7 @@
             text-align: left;
             margin-bottom: 0;
 
-            @include media-breakpoint-down(md) {
+            @include media-breakpoint-down(xl) {
                 text-align: center;
             }
     

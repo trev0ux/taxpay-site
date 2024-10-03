@@ -37,8 +37,8 @@
         :key="index"
         class="hero-banner__swiper"
       >
-        <NuxtImg class="hero-banner__background" :src="item.banner.node.mediaItemUrl" :alt="item.banner.node.altText"></NuxtImg>
-        <div class="container hero-banner__container">
+        <div class="container hero-banner__container position-relative">
+          <NuxtImg class="hero-banner__background" :src="item.banner.node.mediaItemUrl" :alt="item.banner.node.altText"></NuxtImg>
           <div class="hero-banner__content">
             <div>
               <h1><WordAnimation :content="item.banner.node.title"/></h1>
@@ -158,7 +158,7 @@ export default {
       activeIndex,
       goToSlide,
       ChevronIcon,
-      modules: [Navigation, Autoplay, Pagination, Scrollbar, A11y],
+      modules: [Navigation, Pagination, Scrollbar, A11y],
     };
   },
   components: {

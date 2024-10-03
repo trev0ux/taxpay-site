@@ -1,6 +1,6 @@
 <template>
-  <header class="position-relative">
-    <div :class="'nav-menu container ' + headerClass">
+  <header :class="[isScrolled ? 'nav-menu nav-menu--scrolled' : 'nav-menu']">
+    <div :class="['container', headerClass]">
       <NuxtLink to="/">
         <NuxtImg src="/logo.svg" alt="TaxPay Logo" width="135" height="auto" />
       </NuxtLink>
@@ -62,11 +62,22 @@ const headerClass = computed(() => {
   return route.path != '/' ? 'nav-menu--not-home' : ' ';
 });
 
+const isScrolled = ref(false);
+
 const isMobileMenuOpen = ref(false);
 
 const toggleMobileMenu = () => {
   isMobileMenuOpen.value = !isMobileMenuOpen.value;
 };
+
+const checkScroll = () => {
+  isScrolled.value = window.scrollY > 90;
+};
+
+onMounted(() => {
+  window.addEventListener('scroll', checkScroll);
+  checkScroll();
+});
 </script>
 
 <style lang="sass">
