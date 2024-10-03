@@ -15,10 +15,14 @@
 
         @include media-breakpoint-down(lg) {
             font-size: 42px;
+            display: block;
+            margin-left: 110px;
+            
         }
 
-        @include media-breakpoint-down(lg) {
+        @include media-breakpoint-down(sm) {
            margin-bottom: 20px;
+           margin-left: 0px;
         }
     }
 
