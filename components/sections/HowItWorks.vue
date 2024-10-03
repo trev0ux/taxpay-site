@@ -1,23 +1,32 @@
 <template>
   <section class="services">
     <div class="container">
-      <h2 v-if="howItWorks">
-        <WordAnimation :content="howItWorks.titulo" />
-      </h2>
+      <h2 v-if="howItWorks"><WordAnimation :content="howItWorks.titulo"/></h2>
 
       <article class="services__container">
         <div class="services__accordion-item" v-if="howItWorks">
-          <div v-for="(service, index) in items" :key="service.titulo" class="services__item">
-            <h3 @click="toggleService(index)" :class="'services__title ' +
-              (index === currentIndex
-                ? 'services__accordion-item--active'
-                : '')
-              ">
+          <div
+            v-for="(service, index) in items"
+            :key="service.titulo"
+            class="services__item"
+          >
+            <h3
+              @click="toggleService(index)"
+              :class="
+                'services__title ' +
+                (index === currentIndex
+                  ? 'services__accordion-item--active'
+                  : '')
+              "
+            >
               {{ service.titulo }}
               <Icon name="ChevronIcon"></Icon>
-              <span class="services__progress-bar" :style="{
-                height: index === currentIndex ? `${progress}%` : '0%',
-              }"></span>
+              <span
+                class="services__progress-bar"
+                :style="{
+                  height: index === currentIndex ? `${progress}%` : '0%',
+                }"
+              ></span>
             </h3>
             <transition name="accordion">
               <p v-show="index === currentIndex">
@@ -71,20 +80,17 @@ function startProgress() {
       progress.value = 0;
       currentIndex.value = (currentIndex.value + 1) % items.value.length;
     }
-  }, 30);
+  }, 150);
 }
 
 function toggleService(index) {
   currentIndex.value = index;
-  progress.value = 0;
-
-  if (!isMobile.value) {
-    startProgress();
-  }
+  progress.value = 100;
+  clearInterval(interval.value);
 }
 
 onMounted(() => {
-  if (!isMobile.value) {
+  if(!isMobile.value) {
     startProgress();
   }
 });

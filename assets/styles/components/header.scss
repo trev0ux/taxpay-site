@@ -7,34 +7,49 @@
 @keyframes cascadeIn {
     from {
         opacity: 0;
-        transform: translateX(-100px); // Inicia a animação da esquerda fora da tela
+        transform: translateX(-100px);
     }
 
     to {
         opacity: 1;
-        transform: translateX(0); // Move para a posição original
+        transform: translateX(0);
     }
 }
 
 .nav-menu {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: transparent;
     padding-top: 32px;
     padding-bottom: 32px;
     width: 100%;
     right: 0;
     left: 0;
-    z-index: 2;
-    position: fixed;
+    transition: all .2s linear;
+    background-color: transparent;
+    position: absolute;
+    z-index: 10;
 
-
+    > div {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: transparent;
+    }
 
     @include media-breakpoint-down(lg) {
         align-items: flex-end;
-        padding: 34px 15px;
+        padding: 34px 0;
+    }
 
+    &--scrolled {
+        background-color: $white;
+        position: fixed;
+        width: 100%;
+        padding: 16px 0;
+
+        .nav-menu__contact {
+            span {
+                background-color: $light-green;
+            }
+        }
     }
 
     &--not-home {
@@ -49,9 +64,9 @@
         width: 135px;
         height: auto;
         object-fit: contain;
-        max-width: 100%; 
-        height: auto;    
-        
+        max-width: 100%;
+        height: auto;
+
         @include media-breakpoint-down(lg) {
             height: 36px;
             width: auto;
@@ -74,8 +89,8 @@
     }
 
     &__items {
-
-        @include media-breakpoint-down(lg) {}
+        @include media-breakpoint-down(lg) {
+        }
     }
 
     &__item {
@@ -86,9 +101,6 @@
         color: $black;
         text-decoration: none;
         font-weight: $font-weight--regular;
-   
-
-
 
         &--active {
             border: 1px solid $black;
@@ -100,10 +112,7 @@
             padding: 0px;
             border: none;
             @include font-size($font-xxx-large);
-
         }
-
-
     }
 
     &__contact {
@@ -122,11 +131,9 @@
             span {
                 position: initial;
                 margin-left: 15px;
+                background-color: $light-green;
             }
         }
-
-
-
     }
 
     &__burguer {
@@ -143,7 +150,6 @@
 
         @include media-breakpoint-down(lg) {
             display: flex;
-
         }
 
         &:hover,
@@ -157,18 +163,6 @@
             top: 35px;
             right: 20px;
             border: none;
-
-            @include media-breakpoint-down(lg) {
-                top: 55px;
-                right: 100px;
-            }
-
-            @include media-breakpoint-down(sm) {
-                top: 55px;
-                right: 40px;
-            }
-
-
 
             span {
                 background-color: $white !important;
@@ -195,7 +189,7 @@
             background-color: $black;
             border-radius: 100px;
             position: absolute;
-            transition: all .4s ease-in-out;
+            transition: all 0.4s ease-in-out;
 
             &:nth-child(1) {
                 top: 7px;
@@ -211,72 +205,64 @@
         }
     }
 
-    .nav-menu__mobile {
+    &__mobile {
         @include media-breakpoint-down(lg) {
-          top: 20px;
-          flex-direction: column;
-          background-color: $black;
-          border-radius: 10px;
-          width: calc(100% - 30px);
-          z-index: 2;
-          margin: 0 15px;
-          left: 0;
-          justify-content: center;
-          padding: 120px 30px;
-          position: absolute;
-          opacity: 0;
-          transform: translateY(-20px); 
-          visibility: hidden;
-          transition: transform 0.3s ease, opacity 0.3s ease, visibility 0s 0.3s; 
-      
-          &--open {
-            display: flex;
-            opacity: 1;
-            transform: translateY(0); 
-            visibility: visible; 
-            transition: transform 0.3s ease, opacity 0.3s ease, visibility 0s;
-          }
-      
-          &::before {
-            content: '';
-            position: fixed;
-            top: 0;
+            top: 20px;
+            display: none;
+            flex-direction: column;
+            background-color: $black;
+            border-radius: 10px;
+            width: calc(100% - 30px);
+            z-index: 2;
+            margin: 0 15px;
             left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.4);
-            z-index: -1;
-            transition: background 0.3s ease; 
-          }
+            justify-content: center;
+            padding: 120px 30px;
+            position: absolute;
+
+            &--open {
+                display: flex;
+            }
+
+            &::before {
+                content: "";
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.4);
+                z-index: -1;
+            }
         }
-      
+
         li {
-          overflow: hidden;
-      
-          &:nth-child(1) a {
-            animation-delay: 0.1s;
-          }
-      
-          &:nth-child(2) a {
-            animation-delay: 0.2s;
-          }
-      
-          &:nth-child(3) a {
-            animation-delay: 0.3s;
-          }
-      
-          &:nth-child(4) a {
-            animation-delay: 0.4s;
-          }
-      
-          a {
-            opacity: 0;
-            transform: translateY(100px);
-            animation: cascadeIn 0.9s ease forwards;
-            display: block;
-          }
+            overflow: hidden;
+            &:nth-child(1) a {
+                animation-delay: 0.1s;
+            }
+
+            &:nth-child(2) a {
+                animation-delay: 0.2s;
+            }
+
+            &:nth-child(3) a {
+                animation-delay: 0.3s;
+            }
+
+            &:nth-child(4) a {
+                animation-delay: 0.4s;
+            }
+
+            a {
+                opacity: 0;
+                transform: translateY(100px);
+                animation: cascadeIn 0.9s ease forwards;
+                display: block;
+            }
         }
-      }
+    }
+}
 
 @keyframes cascadeIn {
     from {
@@ -288,4 +274,4 @@
         opacity: 1;
         transform: translateY(0);
     }
-}}
+}
