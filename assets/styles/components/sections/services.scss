@@ -13,11 +13,14 @@
         line-height: 1;
         display: flex;
         justify-content: center;
+        
 
         @include media-breakpoint-down(lg) {
             font-size: 42px;
             justify-content: flex-start;
-            margin-bottom: 20px;
+        }
+        @include media-breakpoint-down(sm) {
+           margin-bottom: 20px;
         }
     }
 

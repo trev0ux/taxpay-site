@@ -101,13 +101,12 @@
 
     &__value {
         width: 45%;
-
+        
         h3 {
             font-size: 100px;
             margin-bottom: 0px;
             margin-bottom: -20px;
         
-
             @include media-breakpoint-down(xl) {
                 font-size: 80px;
             }
