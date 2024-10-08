@@ -69,19 +69,19 @@
             align-items: center;
             flex: 0 0 100%;
         }
-
         h2 {
-            font-size: 82px;
-            margin-bottom: 32px;
-            color: $black;
             max-width: 420px;
+            margin-bottom: 32px;
+            @include font-size($font-xxxx-large);
+            color: $black;
             line-height: 1;
             
-
+            
             @include media-breakpoint-down(lg) {
-                font-size: 62px;
                 max-width: 340px;
+                display: block;
                 margin-bottom: 20px;
+    
             }
         }
 
@@ -90,7 +90,8 @@
             margin-bottom: 32px;
         }
 
-        button {
+        a {
+            width: fit-content;
             @include media-breakpoint-down(lg) {
                 display: none;
             }

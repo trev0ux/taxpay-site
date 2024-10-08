@@ -20,7 +20,9 @@
                     </div>
                 </div>
             </div>
-            <about-us :content="aboutUs" v-if="aboutUs"></about-us>
+            <animate-section>
+                <about-us :content="aboutUs" v-if="aboutUs"></about-us>
+            </animate-section>
         </section>
     </article>
 
@@ -32,6 +34,7 @@ import { useSiteContentStore } from "@/stores/index";
 import AboutUs from '@/components/sections/AboutUs.vue';
 import PreLoader from "@/components/PreLoader.vue";
 import WordAnimation from '@/components/WordAnimation.vue';
+import AnimateSection from '@/components/AnimateSection.vue';
 
 const title = ref("");
 const description = ref("");
@@ -67,10 +70,9 @@ const fetchData = async () => {
         description.value = content.data.servicos.services.descricao;
         services.value = content.data.servicos.services.servicos;
         aboutUs.value = content.data.servicos.quemSomos;
+        loading.value = false;
     } catch (error) {
         console.log(error);
-    } finally {
-        loading.value = false;
     }
 };
 

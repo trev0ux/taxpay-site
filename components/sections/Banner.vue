@@ -158,7 +158,7 @@ export default {
       activeIndex,
       goToSlide,
       ChevronIcon,
-      modules: [Navigation, Pagination, Scrollbar, A11y],
+      modules: [Navigation, Autoplay, Pagination, Scrollbar, A11y],
     };
   },
   components: {

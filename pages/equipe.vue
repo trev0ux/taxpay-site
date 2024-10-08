@@ -35,13 +35,11 @@ const fetchData = async () => {
   try {
     await siteContentStore.fetchSiteContent();
     const content = siteContentStore.siteContent;
-    console.log(content);
     teams.value = content.data.time.time.membrosDoTime;
     title.value = content.data.time.time.titulo;
+    loading.value = false;
   } catch (error) {
     console.log(error);
-  } finally {
-    loading.value = false;
   }
 };
 

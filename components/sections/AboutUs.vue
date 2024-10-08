@@ -8,19 +8,19 @@
             :alt="content.imagem.node.altText"></NuxtImg>
         </div>
         <article class="about-us__text">
-          <h2><WordAnimation :content="content.titulo"/></h2>
+          <h2><WordAnimation :content="content.titulo"></WordAnimation></h2>
           <div class="about-us__image d-block d-lg-none">
             <NuxtImg v-if="content.imagem" :src="content.imagem.node.mediaItemUrl" :alt="content.imagem.node.altText">
             </NuxtImg>
           </div>
           <p>{{ content.descricao }}</p>
-          <button v-if="(!isPurple, !isGreen)" class="btn btn-primary">
+          <NuxtLink v-if="(!isPurple, !isGreen)" to="/Contato" class="btn btn-primary">
             Entre em contato
             <span>
               <ChevronIcon color="#191919" />
             </span>
 
-          </button>
+          </NuxtLink>
         </article>
       </div>
     </div>

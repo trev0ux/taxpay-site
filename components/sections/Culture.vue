@@ -4,7 +4,7 @@
       <article class="company-culture__text">
         <h2><WordAnimation :content="culture.titulo"/></h2>
         <p>{{ culture.descricao }}</p>
-        <button class="btn btn-primary" to="/contato">
+        <button class="btn btn-primary" to="/Contato">
           Entre em contato
           <span>
                 <ChevronIcon color="#191919" />
@@ -25,7 +25,7 @@
             </div>
           </swiper-slide>
         </swiper>
-        <NuxtLink class="company-culture__button" to="/contato">
+        <NuxtLink class="company-culture__button" to="/Contato">
           <button class="btn btn-primary" >
             Entre em contato
             <span>

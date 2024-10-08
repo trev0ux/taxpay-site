@@ -21,28 +21,20 @@
     }
 
     h2 {
-        font-size: 82px;
         margin-bottom: 70px;
+        @include font-size($font-xxxx-large);
         color: $black;
         line-height: 1;
-        display: flex;
-        justify-content: center;
+        text-align: center;
         
         @include media-breakpoint-down(lg) {
-            font-size: 42px;
-            margin-left: 110px;
             display: block;
-            
+            margin-bottom: 30px;
+
         }
 
         @include media-breakpoint-down(sm) {
-            margin-bottom: 30px;
-            margin-left: 0px;
-        }
-
-        @include media-breakpoint-down(md) {
-            margin-bottom: 30px;
-            margin-left: 0px;
+            text-align: left;
         }
     }
 

@@ -4,25 +4,29 @@
       <PreLoader />
     </div>
     <section class="quem-somos" v-else>
-      <about-us :content="aboutUs" v-if="aboutUs"></about-us>
-      <div class="container">
-        <div class="quem-somos__percentage ">
-          <div>
-            <h4><word-animation :content="title" /></h4>
-            <NuxtImg :src="image" :alt="altText"></NuxtImg>
-          </div>
-          <div class="quem-somos__information">
-            <p>{{ description }}
-            </p>
-            <div class="quem-somos__values">
-              <div class="quem-somos__value" v-for="(item, index) in gains" :key="index">
-                <h3><word-animation :content="item.numero" /></h3>
-                <p>{{ item.descricao }}</p>
+      <animate-section>
+        <about-us :content="aboutUs" v-if="aboutUs"></about-us>
+      </animate-section>
+      <animate-section>
+        <div class="container">
+          <div class="quem-somos__percentage ">
+            <div>
+              <h4><word-animation :content="title" /></h4>
+              <NuxtImg :src="image" :alt="altText"></NuxtImg>
+            </div>
+            <div class="quem-somos__information">
+              <p>{{ description }}
+              </p>
+              <div class="quem-somos__values">
+                <div class="quem-somos__value" v-for="(item, index) in gains" :key="index">
+                  <h3><word-animation :content="item.numero" /></h3>
+                  <p>{{ item.descricao }}</p>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
+      </animate-section>
     </section>
   </article>
 </template>
@@ -32,6 +36,7 @@ import { useSiteContentStore } from "@/stores/index";
 import AboutUs from '@/components/sections/AboutUs.vue';
 import PreLoader from "@/components/PreLoader.vue";
 import WordAnimation from '~/components/WordAnimation.vue';
+import AnimateSection from '@/components/AnimateSection.vue';
 
 const title = ref("");
 const description = ref("");
@@ -72,10 +77,10 @@ const fetchData = async () => {
     altText.value = content.data.quemSomos.quemSomos.imagem.node.altText;
     gains.value = content.data.quemSomos.quemSomos.ganhos.valor;
     aboutUs.value = content.data.quemSomos.sobreNos;
+
+    loading.value = false;
   } catch (error) {
     console.log(error);
-  } finally {
-    loading.value = false;
   }
 };
 

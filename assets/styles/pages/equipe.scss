@@ -5,8 +5,6 @@
 @import "bootstrap/scss/mixins/_breakpoints";
 @import "swiper/css/navigation";
 
-
-
 .team-member {
     z-index: 1;
     height: 280px;
@@ -33,46 +31,41 @@
     }
 }
 
-
 p {
     padding: 0px 5px;
     margin-bottom: -10px;
 
-    @include media-breakpoint-down(lg) {}
+    @include media-breakpoint-down(lg) {
+    }
 }
 
-
 .team-page {
-    margin: 0px  2.5% 60px  ;
+    margin: 0px 2.5% 60px;
     width: 95%;
     padding-top: 120px;
-
 
     > article {
         background-color: $white-edgar;
         padding: 30px 0px 60px;
         border-radius: 60px;
 
-        @include media-breakpoint-down(lg){
+        @include media-breakpoint-down(lg) {
             border-radius: 30px;
         }
     }
 
-
-    @include media-breakpoint-down(xl) {}
-    h2 { 
-        font-size: 60px;
-        align-items: center;
-        display: flex;
-        justify-content: center;
-        color: $black;
+    h2 {
         margin-bottom: 50px;
-       
+        @include font-size($font-xxxx-large);
+        color: $black;
+        line-height: 1;
+        text-align: center;
+
+        @include media-breakpoint-down(lg) {
+            display: block;
+            margin-bottom: 30px;
+        }
     }
-
-
-
-
 
     &__members {
         display: flex;
@@ -85,15 +78,12 @@ p {
         }
 
         @include media-breakpoint-down(md) {
-          
         }
     }
 
-
-
-    &__cards:nth-child(-n+2) {
+    &__cards:nth-child(-n + 2) {
         width: 48%;
-        @include media-breakpoint-down(md){
+        @include media-breakpoint-down(md) {
             width: 100%;
         }
 
@@ -104,9 +94,7 @@ p {
             @include media-breakpoint-down(md) {
                 height: 280px;
             }
-        
 
-            
             h3,
             p {
                 padding: 0px 40px;
@@ -115,12 +103,11 @@ p {
                 @include media-breakpoint-down(xl) {
                     padding: 0px;
                 }
-               
             }
         }
     }
 
-    &__cards:nth-child(n+3) {
+    &__cards:nth-child(n + 3) {
         display: flex;
         flex-wrap: wrap;
         width: calc(25% - 20px);
@@ -129,11 +116,8 @@ p {
             width: 48%;
         }
 
-        @include media-breakpoint-down(md){
+        @include media-breakpoint-down(md) {
             width: 100%;
         }
     }
-
 }
-
-

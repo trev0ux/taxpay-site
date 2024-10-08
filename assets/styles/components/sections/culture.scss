@@ -46,19 +46,19 @@
         }
 
         h2 {
-            font-size: 82px;
-            margin-bottom: 70px;
+            margin-bottom: 30px;
+            @include font-size($font-xxxx-large);
             color: $black;
-            max-width: 420px;
             line-height: 1;
+            width: 100%;
 
             @include media-breakpoint-down(xl) {
-                font-size: 62px;
-                max-width: 320px;
-                text-align: center;
                 margin-bottom: 20px;
+                text-align: center;
+
             }
         }
+    
 
         p {
             font-family: $font-family--secondary;

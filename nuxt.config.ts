@@ -23,6 +23,6 @@ export default defineNuxtConfig({
   },
   plugins: [
     '@/plugins/axios',
-    //'@/plugins/swiper',
+    '@/plugins/lenis.client.js',
   ],
 })

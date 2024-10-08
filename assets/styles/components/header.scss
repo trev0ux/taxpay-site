@@ -159,9 +159,9 @@
 
         &--open {
             z-index: 20;
-            position: fixed;
+            position: absolute;
             top: 35px;
-            right: 20px;
+            right: 25px;
             border: none;
 
             span {

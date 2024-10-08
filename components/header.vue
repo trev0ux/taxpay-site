@@ -8,21 +8,21 @@
       <div :class="'nav-menu__mobile ' + (isMobileMenuOpen ? 'nav-menu__mobile--open' : '') ">
         <ul class="nav-menu__items">
           <li>
-            <NuxtLink to="/servicos" class="nav-menu__item" title="Veja nossos serviços" active-class="nav-menu__item--active" @click="toggleMobileMenu">Nossos Serviços</NuxtLink>
+            <NuxtLink to="/Servicos" class="nav-menu__item" title="Veja nossos serviços" active-class="nav-menu__item--active" @click="toggleMobileMenu">Nossos Serviços</NuxtLink>
           </li>
           <li>
             <NuxtLink to="/QuemSomos" class="nav-menu__item" title="Saiba mais sobre nós" active-class="nav-menu__item--active" @click="toggleMobileMenu">Quem Somos</NuxtLink>
           </li>
           <li>
-            <NuxtLink to="/equipe" class="nav-menu__item" title="Saiba mais sobre nós" active-class="nav-menu__item--active" @click="toggleMobileMenu">Equipe</NuxtLink>
+            <NuxtLink to="/Equipe" class="nav-menu__item" title="Saiba mais sobre nós" active-class="nav-menu__item--active" @click="toggleMobileMenu">Equipe</NuxtLink>
           </li>
           <li>
-            <NuxtLink to="/contato" class="nav-menu__item" title="Entre em contato conosco" active-class="nav-menu__item--active" @click="toggleMobileMenu">Contato</NuxtLink>
+            <NuxtLink to="/Contato" class="nav-menu__item" title="Entre em contato conosco" active-class="nav-menu__item--active" @click="toggleMobileMenu">Contato</NuxtLink>
           </li>
         </ul>
 
         <div>
-          <NuxtLink class="nav-menu__contact btn btn-primary d-flex d-lg-none" to="/contato" @click="toggleMobileMenu">
+          <NuxtLink class="nav-menu__contact btn btn-primary d-flex d-lg-none" to="/Contato" @click="toggleMobileMenu">
             Entrar em contato
             <span>
               <Icon name="ChevronIcon"/>
@@ -31,7 +31,7 @@
         </div>
       </div>
 
-      <NuxtLink class="nav-menu__contact btn btn-primary d-none d-lg-flex">
+      <NuxtLink class="nav-menu__contact btn btn-primary d-none d-lg-flex" to="/Contato">
         Entrar em contato
         <span>
           <ChevronIcon color="#191919"/>

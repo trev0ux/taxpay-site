@@ -5,11 +5,21 @@
     </div>
     <div v-else>
       <banner :banner="banner"></banner>
-      <culture :culture="culture" v-if="culture"></culture>
-      <how-it-works :how-it-works="howItWorks" v-if="howItWorks"></how-it-works>
-      <about-us :content="aboutUs" v-if="aboutUs"></about-us>
-      <team :team="team" v-if="team"></team>
-      <testimonials :testimonials="testimonials" v-if="testimonials"></testimonials>
+      <animate-section>
+        <culture :culture="culture" v-if="culture"></culture>
+      </animate-section>
+      <animate-section>
+        <how-it-works :how-it-works="howItWorks" v-if="howItWorks"></how-it-works>
+      </animate-section>
+      <animate-section>
+        <about-us :content="aboutUs" v-if="aboutUs"></about-us>
+      </animate-section>
+      <animate-section>
+        <team :team="team" v-if="team"></team>
+      </animate-section>
+      <animate-section>
+        <testimonials :testimonials="testimonials" v-if="testimonials"></testimonials>
+      </animate-section>
     </div>
   </div>
 </template>
@@ -25,6 +35,7 @@ import AboutUs from '@/components/sections/AboutUs.vue';
 import Team from '@/components/sections/Team.vue';
 import Testimonials from '@/components/sections/Testimonials.vue';
 import PreLoader from '@/components/PreLoader.vue';
+import AnimateSection from '@/components/AnimateSection.vue';
 
 const banner = ref([]);
 const culture = ref([]);
@@ -68,8 +79,6 @@ async function fetchData() {
     loading.value = false;
   } catch (error) {
     console.error(error);
-  } finally {
-    loading.value = false;
   }
 }
 

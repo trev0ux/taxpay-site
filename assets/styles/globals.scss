@@ -7,6 +7,26 @@ body {
   font-family: $font-family--primary;
 }
 
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
+
 .accordion-enter-active,
 .accordion-leave-active {
   transition: max-height 0.3s linear, opacity 0.3s ease;
